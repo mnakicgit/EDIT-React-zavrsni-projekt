@@ -6,9 +6,10 @@ import Pocetna from "./components/Pocetna";
 import Aktivnosti from "./components/Aktivnosti";
 import Volonteri from "./components/Volonteri";
 import Udruge from "./components/Udruge";
+import Footer from "./components/Footer";
 
 function App() {
-	const [pocetna, prikazPocetnu] = useState(true);
+	const [pocetna, prikazPocetna] = useState(true);
 	const [aktivnosti, prikazAktivnosti] = useState(false);
 	const [volonteri, prikazVolonteri] = useState(false);
 	const [udruge, prikazUdruge] = useState(false);
@@ -17,10 +18,14 @@ function App() {
 		<>
 			<Navigacija />
 
-			{pocetna && <Pocetna />}
-			{pocetna && <Aktivnosti />}
-			{pocetna && <Volonteri />}
-			{pocetna && <Udruge />}
+			<div id="page-content-wrapper">
+				{pocetna && <Pocetna />}
+				{aktivnosti && <Aktivnosti />}
+				{volonteri && <Volonteri />}
+				{udruge && <Udruge />}
+			</div>
+
+			<Footer />
 		</>
 	);
 }

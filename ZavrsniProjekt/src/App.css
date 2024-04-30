@@ -1,6 +1,48 @@
+html {
+	/*font-size: 62.5%; 1 rem = 10 px*/
+}
+
+/* body * {
+	font-size: 1.6rem;
+} */
+
 #root {
-	max-width: 1280px;
+	width: 100%;
+	position: relative;
+	min-height: 100vh;
 	margin: 0 auto;
-	padding: 2rem;
 	text-align: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+#page-content-wrapper {
+	padding: 2rem;
+	padding-top: 3.5rem; /* Header height  PROMINI KASNIJE*/
+	padding-bottom: 2.5rem; /* Footer height */
+}
+
+.my-footer {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	min-height: 2.5rem;
+	padding: 1rem;
+}
+
+#profilna {
+	width: 25rem;
+}
+
+.flex-wrapper {
+	display: flex;
+	justify-content: space-evenly;
+}
+
+.flex-wrapper * {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
 }
