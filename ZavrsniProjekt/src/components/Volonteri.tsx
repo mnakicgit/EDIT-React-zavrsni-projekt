@@ -4,7 +4,7 @@ import Card from "react-bootstrap/Card";
 function Volonteri() {
 	return (
 		<>
-			<Container className="card-container">
+			<Container className="card-container w-100">
 				<Card className="volonter-card" style={{ width: "18rem" }}>
 					<Card.Img variant="top" src="holder.js/100px180" />
 					<Card.Body>
