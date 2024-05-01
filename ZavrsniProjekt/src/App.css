@@ -17,34 +17,7 @@ body * {
 	justify-content: center;
 }
 
-#page-content-wrapper {
-	padding: 2rem;
-	padding-top: 3.5rem; /* Header height  PROMINI KASNIJE*/
-	padding-bottom: 2.5rem; /* Footer height */
-	position: relative;
-	width: 100%;
-	display: flex;
-	justify-content: center;
-}
-
-#page-content-wrapper > * {
-	margin: 1rem;
-}
-
-.my-footer {
-	position: absolute;
-	bottom: 0;
-	width: 100%;
-	min-height: 2.5rem;
-	padding: 1rem;
-}
-
-#profilna {
-	max-width: 25rem;
-	min-width: 15rem;
-	width: 100%;
-}
-
+/*
 .flex-wrapper {
 	display: flex;
 	justify-content: space-evenly;
@@ -61,13 +34,13 @@ body * {
 .floating-button {
 	position: fixed;
 	right: 2rem;
-	bottom: 4rem; /*PROMINI KASNIJE*/
+	bottom: 4rem; /*PROMINI KASNIJE
 	z-index: 5;
 }
 
 .card-container {
-	/* ne popravlja problem centriranja */ /* VIDI: https://css-tricks.com/filling-space-last-row-flexbox/*/
-	/* width: fit-content;  */
+	/* ne popravlja problem centriranja  /* VIDI (stavit cards u divove?): https://css-tricks.com/filling-space-last-row-flexbox/ 
+	/* width: fit-content;  
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: flex-start;
@@ -75,4 +48,4 @@ body * {
 
 .volonter-card {
 	margin: 1rem;
-}
+} */
