@@ -3,28 +3,26 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import Form from "react-bootstrap/Form";
 
-function Navigacija() {
-	function handleClickUdruge() {}
-	function handleClickAktivnosti() {}
-	function handleClickVolonteri() {}
+interface NavProps {
+	funPoc: () => void;
+	funVol: () => void;
+	funAkt: () => void;
+	funUdr: () => void;
+}
 
+function Navigacija(props: NavProps) {
 	return (
 		<>
 			<Navbar fixed="top" expand="lg" className="bg-body-tertiary">
 				<Container>
-					<Navbar.Brand href="#home">Platforma za volontiranje</Navbar.Brand>
+					<Navbar.Brand>Platforma za volontiranje</Navbar.Brand>
 					<Navbar.Toggle aria-controls="basic-navbar-nav" />
 					<Navbar.Collapse id="basic-navbar-nav">
 						<Nav className="me-auto">
-							<Nav.Link onClick={handleClickAktivnosti} href="#home">
-								Aktivnosti
-							</Nav.Link>
-							<Nav.Link onClick={handleClickVolonteri} href="">
-								Volonteri
-							</Nav.Link>
-							<Nav.Link onClick={handleClickUdruge} href="">
-								Udruge
-							</Nav.Link>
+							<Nav.Link onClick={props.funPoc}>Početna</Nav.Link>
+							<Nav.Link onClick={props.funAkt}>Aktivnosti</Nav.Link>
+							<Nav.Link onClick={props.funVol}>Volonteri</Nav.Link>
+							<Nav.Link onClick={props.funUdr}>Udruge</Nav.Link>
 						</Nav>
 						<Nav className="ml-auto">
 							<Form>

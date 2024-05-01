@@ -11,14 +11,39 @@ import Udruge from "./components/Udruge";
 import Footer from "./components/Footer";
 
 function App() {
-	const [pocetna, prikazPocetna] = useState(true);
-	const [aktivnosti, prikazAktivnosti] = useState(false);
-	const [volonteri, prikazVolonteri] = useState(false);
-	const [udruge, prikazUdruge] = useState(false);
+	const [pocetna, postaviPocetna] = useState(true);
+	const [aktivnosti, postaviAktivnosti] = useState(false);
+	const [volonteri, postaviVolonteri] = useState(false);
+	const [udruge, postaviUdruge] = useState(false);
+
+	const handleClickPocetna = () => {
+		postaviPocetna(true);
+		postaviAktivnosti(false);
+		postaviVolonteri(false);
+		postaviUdruge(false);
+	};
+	const handleClickAktivnosti = () => {
+		postaviPocetna(false);
+		postaviAktivnosti(true);
+		postaviVolonteri(false);
+		postaviUdruge(false);
+	};
+	const handleClickVolonteri = () => {
+		postaviPocetna(false);
+		postaviAktivnosti(false);
+		postaviVolonteri(true);
+		postaviUdruge(false);
+	};
+	const handleClickUdruge = () => {
+		postaviPocetna(false);
+		postaviAktivnosti(false);
+		postaviVolonteri(false);
+		postaviUdruge(true);
+	};
 
 	return (
 		<>
-			<Navigacija />
+			<Navigacija funPoc={handleClickPocetna} funAkt={handleClickAktivnosti} funVol={handleClickVolonteri} funUdr={handleClickUdruge} />
 
 			<Container id="page-content-wrapper" className="py-5 my-5 position-relative w-100 d-flex justify-content-center">
 				{pocetna && <Pocetna />}
