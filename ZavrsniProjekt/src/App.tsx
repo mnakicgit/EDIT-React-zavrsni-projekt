@@ -9,9 +9,9 @@ import Udruge from "./components/Udruge";
 import Footer from "./components/Footer";
 
 function App() {
-	const [pocetna, prikazPocetna] = useState(true);
+	const [pocetna, prikazPocetna] = useState(false);
 	const [aktivnosti, prikazAktivnosti] = useState(false);
-	const [volonteri, prikazVolonteri] = useState(false);
+	const [volonteri, prikazVolonteri] = useState(true);
 	const [udruge, prikazUdruge] = useState(false);
 
 	return (
