@@ -15,10 +15,23 @@ function Volonteri() {
 
 	return (
 		<>
-			{/* width: fit-content; ne popravlja problem centriranja 
-			VIDI (stavit cards u divove?): https://css-tricks.com/filling-space-last-row-flexbox/ */}
-			<Container className="w-100 d-flex flex-wrap justify-content-flex-start">
-				<KarticaVolontera volonteri={volonteriSaServera}></KarticaVolontera>
+			{/* <Container className="row order-sm-first order-last">
+				{/* width: fit-content; ne popravlja problem centriranja 
+				VIDI (stavit cards u divove?): https://css-tricks.com/filling-space-last-row-flexbox/ 
+				KOMPLICIRANIJE (samo css): https://css-tricks.com/an-auto-filling-css-grid-with-max-columns/
+				Ovo funkcionira ako se ne mijenja broj kartica: https://mdbootstrap.com/docs/standard/extended/card-deck/
+				
+				<div className="col-sm-10 row">
+					<KarticaVolontera volonteri={volonteriSaServera} />
+				</div>
+
+				<div className="col-sm-2 ">Filteri</div>
+			</Container> */}
+			<Container className="row">
+				<div className="col-sm-12 col-md-2 order-md-last">Filteri</div>
+				<div className="col-sm-12 col-md-10 order-md-first">
+					<KarticaVolontera volonteri={volonteriSaServera} />
+				</div>
 			</Container>
 		</>
 	);
