@@ -27,9 +27,10 @@ function KarticaVolontera(props: KartVolProps) {
 					<Card.Header>Card Title</Card.Header>
 					<Card.Text className="p-2">Some quick example text to build on the card title and make up the bulk of the card's content.</Card.Text>
 					<Card.Text className="p-2">
+						{" "}
 						{props.volonteri.map((r) => (
 							<PodaciKarticeVolontera key={r.id} rez={r} />
-						))}
+						))}{" "}
 					</Card.Text>
 				</Card.Body>
 			</Card>

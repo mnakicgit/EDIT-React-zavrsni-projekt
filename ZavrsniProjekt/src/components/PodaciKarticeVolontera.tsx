@@ -14,7 +14,7 @@ interface PodKartVolProps {
 	rez: TipoviVolontera;
 }
 
-function KarticaVolontera(props: PodKartVolProps) {
+function PodaciKarticeVolontera(props: PodKartVolProps) {
 	return (
 		<>
 			<Card.Text className="p-2">
@@ -26,4 +26,4 @@ function KarticaVolontera(props: PodKartVolProps) {
 		</>
 	);
 }
-export default KarticaVolontera;
+export default PodaciKarticeVolontera;
