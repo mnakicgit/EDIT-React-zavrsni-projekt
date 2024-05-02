@@ -1,45 +1,24 @@
+import { useState, useEffect } from "react";
+import axios from "axios";
+import KarticaVolontera from "./KarticaVolontera";
 import Container from "react-bootstrap/Container";
-import Card from "react-bootstrap/Card";
 
 function Volonteri() {
+	const [volonteriSaServera, postaviVolontereSaServera] = useState([]);
+
+	useEffect(() => {
+		axios
+			.get("http://localhost:3001/volonteri/")
+			.then((vol) => postaviVolontereSaServera(vol.data))
+			.catch((err) => alert(err));
+	}, []);
+
 	return (
 		<>
-			<Container className="card-container w-100">
-				<Card className="volonter-card" style={{ width: "18rem" }}>
-					<Card.Img variant="top" src="holder.js/100px180" />
-					<Card.Body>
-						<Card.Title>Card Title</Card.Title>
-						<Card.Text>Some quick example text to build on the card title and make up the bulk of the card's content.</Card.Text>
-					</Card.Body>
-				</Card>
-				<Card className="volonter-card" style={{ width: "18rem" }}>
-					<Card.Img variant="top" src="holder.js/100px180" />
-					<Card.Body>
-						<Card.Title>Card Title</Card.Title>
-						<Card.Text>Some quick example text to build on the card title and make up the bulk of the card's content.</Card.Text>
-					</Card.Body>
-				</Card>
-				<Card className="volonter-card" style={{ width: "18rem" }}>
-					<Card.Img variant="top" src="holder.js/100px180" />
-					<Card.Body>
-						<Card.Title>Card Title</Card.Title>
-						<Card.Text>Some quick example text to build on the card title and make up the bulk of the card's content.</Card.Text>
-					</Card.Body>
-				</Card>
-				<Card className="volonter-card" style={{ width: "18rem" }}>
-					<Card.Img variant="top" src="holder.js/100px180" />
-					<Card.Body>
-						<Card.Title>Card Title</Card.Title>
-						<Card.Text>Some quick example text to build on the card title and make up the bulk of the card's content.</Card.Text>
-					</Card.Body>
-				</Card>
-				<Card className="volonter-card" style={{ width: "18rem" }}>
-					<Card.Img variant="top" src="holder.js/100px180" />
-					<Card.Body>
-						<Card.Title>Card Title</Card.Title>
-						<Card.Text>Some quick example text to build on the card title and make up the bulk of the card's content.</Card.Text>
-					</Card.Body>
-				</Card>
+			{/* width: fit-content; ne popravlja problem centriranja 
+			VIDI (stavit cards u divove?): https://css-tricks.com/filling-space-last-row-flexbox/ */}
+			<Container className="w-100 d-flex flex-wrap justify-content-flex-start">
+				<KarticaVolontera volonteri={volonteriSaServera}></KarticaVolontera>
 			</Container>
 		</>
 	);

@@ -16,36 +16,3 @@ body * {
 	align-items: center;
 	justify-content: center;
 }
-
-/* Prevedi u bootstrap klase....
-.flex-wrapper {
-	display: flex;
-	justify-content: space-evenly;
-}
-
-.flex-wrapper * {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	max-width: 50rem;
-}
-
-.floating-button {
-	position: fixed;
-	right: 2rem;
-	bottom: 4rem; /*PROMINI KASNIJE
-	z-index: 5;
-}
-
-.card-container {
-	/* ne popravlja problem centriranja  /* VIDI (stavit cards u divove?): https://css-tricks.com/filling-space-last-row-flexbox/ 
-	/* width: fit-content;  
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: flex-start;
-}
-
-.volonter-card {
-	margin: 1rem;
-} */
