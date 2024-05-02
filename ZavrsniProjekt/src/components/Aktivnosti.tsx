@@ -16,6 +16,7 @@ function Aktivnosti() {
 		<>
 			<Container>
 				{/* PROMINI MARGINE */}
+
 				<Button className="position-fixed" style={{ bottom: "4rem", right: "4rem" }} variant="primary">
 					Dodaj aktivnost
 				</Button>
