@@ -44,13 +44,17 @@ function FormaVolontera(props: FormaVolProps) {
 	};
 	return (
 		<>
-			<form onSubmit={saljiPodatke}>
+			<Form onSubmit={saljiPodatke}>
 				<label>
 					Ime:
 					<input type="text" name="ime" value={formaPodaci.ime} onChange={promjenaUlaza} required />
 				</label>
+				<Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+					<Form.Label>Email</Form.Label>
+					<Form.Control type="email" placeholder="email@primjer.com" required />
+				</Form.Group>
 				<button type="submit">Novi </button>
-			</form>
+			</Form>
 		</>
 	);
 }

@@ -25,8 +25,9 @@ function Navigacija(props: NavProps) {
 							<Nav.Link onClick={props.funUdr}>Udruge</Nav.Link>
 						</Nav>
 						<Nav className="ml-auto">
-							<Form>
+							<Form className="d-flex justify-content-center">
 								<Form.Check type="switch" id="custom-switch" label="Admin" className="mr-2" />
+								<label for="custom-switch" />
 							</Form>
 						</Nav>
 					</Navbar.Collapse>
