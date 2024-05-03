@@ -1,4 +1,4 @@
-import { FormEventHandler, useState } from "react";
+import { useState } from "react";
 import axios from "axios";
 import PopisGradova from "../assets/PopisGradova";
 import Form from "react-bootstrap/Form";
@@ -18,22 +18,9 @@ function FormaVolontera(props: FormaVolProps) {
 		imgSrc: "",
 	});
 
-	// function promjenaUlaza(event: React.ChangeEvent<HTMLInputElement>) {
-	// 	const { name, value } = event.target;
-	// 	postaviPodatke({ ...formaPodaci, [name]: value });
-	// }
-
-	// 	function promjenaUlaza(event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) {
-	//     const { name, value } = event.target;
-	//     postaviPodatke((prevState) => ({
-	//         ...prevState,
-	//         [name]: value
-	//     }));
-	// }
-	// 	}
-
-	function promjenaUlaza(event: React.ChangeEvent<HTMLInputElement>) {
-		const { name, value } = event.target;
+	// zasto ne radi s jednom funkcijom za sve inpute?
+	function promjenaImena(e: React.ChangeEvent<HTMLInputElement>) {
+		const { name, value } = e.target;
 		postaviPodatke((prevState) => ({
 			...prevState,
 			[name]: value,
@@ -42,9 +29,14 @@ function FormaVolontera(props: FormaVolProps) {
 
 	function promjenaSelecta(event: React.ChangeEvent<HTMLSelectElement>) {
 		const { name, value } = event.target;
+		postaviPodatke({ ...formaPodaci, [name]: value });
+	}
+
+	function promjenaEmaila(e: React.ChangeEvent<HTMLInputElement>) {
+		const { value } = e.target;
 		postaviPodatke((prevState) => ({
 			...prevState,
-			[name]: value,
+			email: value,
 		}));
 	}
 
@@ -59,7 +51,7 @@ function FormaVolontera(props: FormaVolProps) {
 		};
 	}
 
-	const saljiPodatke: FormEventHandler<HTMLFormElement> = (event) => {
+	const saljiPodatke: React.FormEventHandler<HTMLFormElement> = (event) => {
 		event.preventDefault();
 		console.log(formaPodaci);
 
@@ -69,11 +61,12 @@ function FormaVolontera(props: FormaVolProps) {
 			props.dodaj((stanje) => [...stanje, rez.data]);
 		});
 	};
+
 	return (
 		<>
 			<Form onSubmit={saljiPodatke}>
 				<FloatingLabel controlId="floatingIme" label="Ime" className="mb-3">
-					<Form.Control type="text" placeholder="Unesi ime" value={formaPodaci.ime} onChange={promjenaUlaza} required />
+					<Form.Control type="text" placeholder="Unesi ime" value={formaPodaci.ime} onChange={promjenaImena} required />
 				</FloatingLabel>
 
 				<FloatingLabel controlId="floatingSelect" label="Grad" className="mb-3">
@@ -86,7 +79,7 @@ function FormaVolontera(props: FormaVolProps) {
 				</FloatingLabel>
 
 				<FloatingLabel controlId="floatingEmail" label="Email address" className="mb-3">
-					<Form.Control type="email" placeholder="name@example.com" value={formaPodaci.email} onChange={promjenaUlaza} required />
+					<Form.Control type="email" placeholder="name@example.com" value={formaPodaci.email} onChange={promjenaEmaila} required />
 				</FloatingLabel>
 				<button type="submit">Novi</button>
 			</Form>
