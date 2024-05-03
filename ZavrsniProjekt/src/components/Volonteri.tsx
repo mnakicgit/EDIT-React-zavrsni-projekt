@@ -24,18 +24,22 @@ function Volonteri() {
 
 	return (
 		<>
-			<Container>
-				<Container fluid className="bg-body-secondary">
+			<Container className="p-0">
+				<Container fluid className="bg-body-secondary rounded-4 mb-5">
 					<Row>
-						<h1 style={{ textAlign: "left" }}>Volonteri</h1>
+						<h1 className="my-4" style={{ textAlign: "left" }}>
+							Volonteri
+						</h1>
 					</Row>
 					<Row>
 						<Col className="col-sm-12 col-md-10" style={{ textAlign: "left" }}>
-							<div>
-								<h4>Prijavi se i ti!</h4>
-								<Button variant="primary" onClick={handleShow}>
-									Prijava
-								</Button>
+							<div className="d-flex mb-4">
+								<h4 style={{ marginRight: "2rem", marginBottom: "0" }}>Prijavi se i ti!</h4>
+								<div>
+									<Button variant="primary" onClick={handleShow}>
+										Prijava
+									</Button>
+								</div>
 							</div>
 
 							<p>

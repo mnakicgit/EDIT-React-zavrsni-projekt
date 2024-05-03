@@ -116,7 +116,7 @@ function FormaVolontera(props: FormaVolProps) {
 				<FloatingLabel controlId="floatingEmail" label="Email address" className="my-3">
 					<Form.Control type="email" placeholder="name@example.com" value={formaPodaci.email} onChange={promjenaEmaila} required />
 				</FloatingLabel>
-				<button type="submit">Novi</button>
+				<button type="submit">Pošalji</button>
 			</Form>
 		</>
 	);
