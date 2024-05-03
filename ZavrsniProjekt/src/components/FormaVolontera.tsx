@@ -1,6 +1,8 @@
 import { FormEventHandler, useState } from "react";
 import axios from "axios";
+import PopisGradova from "../assets/PopisGradova";
 import Form from "react-bootstrap/Form";
+import FloatingLabel from "react-bootstrap/FloatingLabel";
 
 interface FormaVolProps {
 	dodaj: (stanje: { ime: string; id: string; email: string; grad: string; aktivnosti: string[]; imgSrc: string }) => void;
@@ -16,9 +18,34 @@ function FormaVolontera(props: FormaVolProps) {
 		imgSrc: "",
 	});
 
+	// function promjenaUlaza(event: React.ChangeEvent<HTMLInputElement>) {
+	// 	const { name, value } = event.target;
+	// 	postaviPodatke({ ...formaPodaci, [name]: value });
+	// }
+
+	// 	function promjenaUlaza(event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) {
+	//     const { name, value } = event.target;
+	//     postaviPodatke((prevState) => ({
+	//         ...prevState,
+	//         [name]: value
+	//     }));
+	// }
+	// 	}
+
 	function promjenaUlaza(event: React.ChangeEvent<HTMLInputElement>) {
 		const { name, value } = event.target;
-		postaviPodatke({ ...formaPodaci, [name]: value });
+		postaviPodatke((prevState) => ({
+			...prevState,
+			[name]: value,
+		}));
+	}
+
+	function promjenaSelecta(event: React.ChangeEvent<HTMLSelectElement>) {
+		const { name, value } = event.target;
+		postaviPodatke((prevState) => ({
+			...prevState,
+			[name]: value,
+		}));
 	}
 
 	function obradiPodatke(objekt: { ime: string; id: string; email: string; grad: string; aktivnosti: string[]; imgSrc: string }) {
@@ -45,15 +72,23 @@ function FormaVolontera(props: FormaVolProps) {
 	return (
 		<>
 			<Form onSubmit={saljiPodatke}>
-				<label>
-					Ime:
-					<input type="text" name="ime" value={formaPodaci.ime} onChange={promjenaUlaza} required />
-				</label>
-				<Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-					<Form.Label>Email</Form.Label>
-					<Form.Control type="email" placeholder="email@primjer.com" required />
-				</Form.Group>
-				<button type="submit">Novi </button>
+				<FloatingLabel controlId="floatingIme" label="Ime" className="mb-3">
+					<Form.Control type="text" placeholder="Unesi ime" value={formaPodaci.ime} onChange={promjenaUlaza} required />
+				</FloatingLabel>
+
+				<FloatingLabel controlId="floatingSelect" label="Grad" className="mb-3">
+					<Form.Select aria-label="Odabir grada iz padajuceg izbornika" name="grad" value={formaPodaci.grad} onChange={promjenaSelecta} required>
+						{PopisGradova.map((grad) => (
+							<option key={grad}>{grad}</option>
+						))}
+						{/* problem kod sortiranja, č ć na kraju */}
+					</Form.Select>
+				</FloatingLabel>
+
+				<FloatingLabel controlId="floatingEmail" label="Email address" className="mb-3">
+					<Form.Control type="email" placeholder="name@example.com" value={formaPodaci.email} onChange={promjenaUlaza} required />
+				</FloatingLabel>
+				<button type="submit">Novi</button>
 			</Form>
 		</>
 	);

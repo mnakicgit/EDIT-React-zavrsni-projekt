@@ -1,7 +1,7 @@
 {
   "aktivnosti": [
     {
-      "id": 1,
+      "id": "1",
       "naziv": "Čišćenje plaže",
       "datum": "",
       "lokacija": "Split",
@@ -9,7 +9,7 @@
       "opis": ""
     },
     {
-      "id": 2,
+      "id": "2",
       "naziv": "Sadnja stabala",
       "datum": "",
       "lokacija": "Osijek",
@@ -22,12 +22,12 @@
       "lokacija": "Zagreb",
       "udruga": true,
       "opis": "",
-      "id": 3
+      "id": "3"
     }
   ],
   "volonteri": [
     {
-      "id": 1,
+      "id": "1",
       "ime": "Grozdana Galebić",
       "email": "galeb@gmail.com",
       "grad": "Split",
@@ -36,7 +36,7 @@
       ]
     },
     {
-      "id": 2,
+      "id": "2",
       "ime": "Ante Korčulanin",
       "email": "falimikorcula@yahoo.com",
       "grad": "Zagreb",
@@ -53,7 +53,7 @@
         "Razno",
         "Prijevoz"
       ],
-      "id": 3
+      "id": "3"
     },
     {
       "ime": "Maja Nakić",
@@ -65,7 +65,7 @@
         "Edukacija",
         "Razno"
       ],
-      "id": 4
+      "id": "4"
     },
     {
       "ime": "Mario Macan",
@@ -74,10 +74,10 @@
       "aktivnosti": [
         "Prijevoz"
       ],
-      "id": 5
+      "id": "5"
     },
     {
-      "id": 1,
+      "id": "1",
       "ime": "test",
       "email": "",
       "grad": "",
@@ -85,7 +85,7 @@
       "imgSrc": ""
     },
     {
-      "id": 1,
+      "id": "1",
       "ime": "test",
       "email": "",
       "grad": "",
@@ -93,7 +93,7 @@
       "imgSrc": ""
     },
     {
-      "id": 1,
+      "id": "1",
       "ime": "fedssf",
       "email": "",
       "grad": "",
@@ -139,17 +139,41 @@
       "grad": "",
       "aktivnosti": [],
       "imgSrc": ""
+    },
+    {
+      "id": "",
+      "ime": "",
+      "email": "",
+      "grad": "",
+      "aktivnosti": [],
+      "imgSrc": ""
+    },
+    {
+      "id": "",
+      "ime": "",
+      "email": "",
+      "grad": "",
+      "aktivnosti": [],
+      "imgSrc": ""
+    },
+    {
+      "id": "",
+      "ime": "",
+      "email": "",
+      "grad": "",
+      "aktivnosti": [],
+      "imgSrc": ""
     }
   ],
   "udruge": [
     {
-      "id": 1,
+      "id": "1",
       "ime": "Split za mačke",
       "grad": "Split",
       "adresa": "Studinova 112"
     },
     {
-      "id": 2,
+      "id": "2",
       "ime": "Marjan",
       "grad": "Split",
       "adresa": "Velebitska 37"
@@ -158,19 +182,19 @@
       "ime": "Pomozi",
       "grad": "Split",
       "adresa": "Riva 1",
-      "id": 3
+      "id": "3"
     },
     {
       "ime": "Caritas",
       "grad": "Makarska",
       "adresa": "Neka ulica 89",
-      "id": 4
+      "id": "4"
     },
     {
       "ime": "Aktiviraj se!",
       "grad": "Hvar",
       "adresa": "Gdinj 54A",
-      "id": 5
+      "id": "5"
     }
   ]
 }

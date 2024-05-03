@@ -51,7 +51,6 @@ const PopisGradova: string[] = [
 	"Trogir",
 	"Gospić",
 	"Krapina",
-	"Umag",
 	"Pleternica",
 	"Opatija",
 	"Labin",
@@ -68,7 +67,6 @@ const PopisGradova: string[] = [
 	"Imotski",
 	"Glina",
 	"Benkovac",
-	"Rab",
 	"Vodice",
 	"Pazin",
 	"Čazma",
@@ -123,7 +121,6 @@ const PopisGradova: string[] = [
 	"Vis",
 	"Komiža",
 	"Novi Marof",
-	"Pleternica",
 	"Rab",
 	"Umag",
 ];

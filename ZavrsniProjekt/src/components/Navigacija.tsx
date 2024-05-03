@@ -27,7 +27,7 @@ function Navigacija(props: NavProps) {
 						<Nav className="ml-auto">
 							<Form className="d-flex justify-content-center">
 								<Form.Check type="switch" id="custom-switch" label="Admin" className="mr-2" />
-								<label for="custom-switch" />
+								<label htmlFor="custom-switch" />
 							</Form>
 						</Nav>
 					</Navbar.Collapse>
