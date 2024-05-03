@@ -13,7 +13,7 @@ interface NavProps {
 function Navigacija(props: NavProps) {
 	return (
 		<>
-			<Navbar fixed="top" expand="lg" className="bg-body-tertiary">
+			<Navbar fixed="top" expand="lg" className="bg-body-secondary">
 				<Container>
 					<Navbar.Brand>Platforma za volontiranje</Navbar.Brand>
 					<Navbar.Toggle aria-controls="basic-navbar-nav" />
