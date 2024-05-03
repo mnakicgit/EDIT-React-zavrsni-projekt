@@ -27,9 +27,12 @@ function FormaVolontera(props: FormaVolProps) {
 		}));
 	}
 
-	function promjenaSelecta(event: React.ChangeEvent<HTMLSelectElement>) {
-		const { name, value } = event.target;
-		postaviPodatke({ ...formaPodaci, [name]: value });
+	function promjenaSelecta(e: React.ChangeEvent<HTMLSelectElement>) {
+		const { value } = e.target;
+		postaviPodatke((prevState) => ({
+			...prevState,
+			grad: value,
+		}));
 	}
 
 	function promjenaEmaila(e: React.ChangeEvent<HTMLInputElement>) {
