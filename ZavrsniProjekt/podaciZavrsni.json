@@ -77,107 +77,13 @@
       "id": "5"
     },
     {
-      "id": "1",
-      "ime": "test",
-      "email": "",
-      "grad": "",
-      "aktivnosti": [],
-      "imgSrc": ""
-    },
-    {
-      "id": "1",
-      "ime": "test",
-      "email": "",
-      "grad": "",
-      "aktivnosti": [],
-      "imgSrc": ""
-    },
-    {
-      "id": "1",
-      "ime": "fedssf",
-      "email": "",
-      "grad": "",
-      "aktivnosti": [],
-      "imgSrc": ""
-    },
-    {
       "id": "",
-      "ime": "ferf",
-      "email": "",
-      "grad": "",
-      "aktivnosti": [],
-      "imgSrc": ""
-    },
-    {
-      "id": "",
-      "ime": "adasdadad",
-      "email": "",
-      "grad": "",
-      "aktivnosti": [],
-      "imgSrc": ""
-    },
-    {
-      "id": "",
-      "ime": "defsd",
-      "email": "",
-      "grad": "",
-      "aktivnosti": [],
-      "imgSrc": ""
-    },
-    {
-      "id": "",
-      "ime": "testttttttt",
-      "email": "",
-      "grad": "",
-      "aktivnosti": [],
-      "imgSrc": ""
-    },
-    {
-      "id": "",
-      "ime": "testttttttt",
-      "email": "",
-      "grad": "",
-      "aktivnosti": [],
-      "imgSrc": ""
-    },
-    {
-      "id": "",
-      "ime": "",
-      "email": "",
-      "grad": "",
-      "aktivnosti": [],
-      "imgSrc": ""
-    },
-    {
-      "id": "",
-      "ime": "",
-      "email": "",
-      "grad": "",
-      "aktivnosti": [],
-      "imgSrc": ""
-    },
-    {
-      "id": "",
-      "ime": "",
-      "email": "",
-      "grad": "",
-      "aktivnosti": [],
-      "imgSrc": ""
-    },
-    {
-      "id": "",
-      "ime": "Sdsfdsfsf",
-      "email": "dfsfsdfs@d",
-      "grad": "",
-      "aktivnosti": [],
-      "imgSrc": ""
-    },
-    {
-      "id": "",
-      "ime": "Sdsfdsfsf",
-      "email": "dfsfsdfs@d",
-      "grad": "Cres",
-      "aktivnosti": [],
+      "ime": "Ovo radi :)",
+      "email": "jupi@ha.ha",
+      "grad": "Solin",
+      "aktivnosti": [
+        "Razno"
+      ],
       "imgSrc": ""
     }
   ],

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import PopisGradova from "../assets/PopisGradova";
+import Fab from "@mui/material/Fab";
 import Form from "react-bootstrap/Form";
 import FloatingLabel from "react-bootstrap/FloatingLabel";
 
@@ -9,7 +10,14 @@ interface FormaVolProps {
 }
 
 function FormaVolontera(props: FormaVolProps) {
-	const [formaPodaci, postaviPodatke] = useState({
+	const [formaPodaci, postaviPodatke] = useState<{
+		id: string;
+		ime: string;
+		email: string;
+		grad: string;
+		aktivnosti: string[];
+		imgSrc: string;
+	}>({
 		id: "",
 		ime: "",
 		email: "",
@@ -20,10 +28,10 @@ function FormaVolontera(props: FormaVolProps) {
 
 	// zasto ne radi s jednom funkcijom za sve inpute?
 	function promjenaImena(e: React.ChangeEvent<HTMLInputElement>) {
-		const { name, value } = e.target;
+		const { value } = e.target;
 		postaviPodatke((prevState) => ({
 			...prevState,
-			[name]: value,
+			ime: value,
 		}));
 	}
 
@@ -33,6 +41,24 @@ function FormaVolontera(props: FormaVolProps) {
 			...prevState,
 			grad: value,
 		}));
+	}
+
+	function promjenaCheckboxa(e: React.ChangeEvent<HTMLInputElement>) {
+		const { checked, value } = e.target;
+		let noveAktivnosti = [...formaPodaci.aktivnosti];
+
+		if (checked) {
+			noveAktivnosti.push(value);
+		} else {
+			noveAktivnosti = noveAktivnosti.filter((aktivnost) => aktivnost !== value);
+		}
+
+		postaviPodatke((prevState) => ({
+			...prevState,
+			aktivnosti: noveAktivnosti,
+		}));
+
+		console.log(formaPodaci);
 	}
 
 	function promjenaEmaila(e: React.ChangeEvent<HTMLInputElement>) {
@@ -56,7 +82,8 @@ function FormaVolontera(props: FormaVolProps) {
 
 	const saljiPodatke: React.FormEventHandler<HTMLFormElement> = (event) => {
 		event.preventDefault();
-		console.log(formaPodaci);
+
+		// generiraj id
 
 		const zaSlanje = obradiPodatke(formaPodaci);
 
@@ -81,7 +108,12 @@ function FormaVolontera(props: FormaVolProps) {
 					</Form.Select>
 				</FloatingLabel>
 
-				<FloatingLabel controlId="floatingEmail" label="Email address" className="mb-3">
+				<Form.Check id="checkEdu" label="Edukacija" value="Edukacija" onChange={promjenaCheckboxa} />
+				<Form.Check id="checkEko" label="Ekologija" value="Ekologija" onChange={promjenaCheckboxa} />
+				<Form.Check id="checkPri" label="Prijevoz" value="Prijevoz" onChange={promjenaCheckboxa} />
+				<Form.Check id="checkRaz" label="Razno" value="Razno" onChange={promjenaCheckboxa} />
+
+				<FloatingLabel controlId="floatingEmail" label="Email address" className="my-3">
 					<Form.Control type="email" placeholder="name@example.com" value={formaPodaci.email} onChange={promjenaEmaila} required />
 				</FloatingLabel>
 				<button type="submit">Novi</button>
