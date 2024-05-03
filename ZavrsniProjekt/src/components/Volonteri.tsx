@@ -7,10 +7,20 @@ import Button from "react-bootstrap/Button";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import Form from "react-bootstrap/Form";
+import PopisGradova from "../assets/PopisGradova";
 
 function Volonteri() {
 	const [volonteriSaServera, postaviVolontereSaServera] = useState([]);
+	// const [filtriraniVolonteri, postaviFiltriraneVolontere] = useState([]); //mozda bolje imati vise poziva prema serveru nego opterecivati klijenta??
 	const [showOffcanvas, setShowOffcanvas] = useState(false);
+	const [filteri, postaviFiltere] = useState({
+		grad: "",
+		edu: false,
+		eko: false,
+		pri: false,
+		raz: false,
+	});
 
 	const handleClose = () => setShowOffcanvas(false);
 	const handleShow = () => setShowOffcanvas(true);
@@ -21,6 +31,22 @@ function Volonteri() {
 			.then((vol) => postaviVolontereSaServera(vol.data))
 			.catch((err) => alert(err));
 	}, []);
+
+	const primjeniFiltere = (event) => {
+		event.preventDefault();
+		//..........
+		console.log(filteri);
+	};
+
+	const ocistiFiltere = () => {
+		postaviFiltere({
+			grad: "",
+			edu: false,
+			eko: false,
+			pri: false,
+			raz: false,
+		});
+	};
 
 	return (
 		<>
@@ -51,7 +77,26 @@ function Volonteri() {
 					</Row>
 				</Container>
 				<Row>
-					<Col className="col-12 col-sm-12 col-md-2 order-md-last">Filteri</Col>
+					<Col className="col-12 col-sm-12 col-md-2 order-md-last">
+						<h6>Filteri</h6>
+						<Form>
+							{" "}
+							{/* onSubmit={primjeniFiltere} */}
+							<Form.Select aria-label="Odabir grada iz padajuceg izbornika" name="grad">
+								{PopisGradova.map((grad) => (
+									<option key={grad}>{grad}</option>
+								))}
+								{/* problem kod sortiranja, č ć na kraju */}
+							</Form.Select>
+							<Form.Check id="checkEdu" label="Edukacija" value="Edukacija" />
+							<Form.Check id="checkEko" label="Ekologija" value="Ekologija" />
+							<Form.Check id="checkPri" label="Prijevoz" value="Prijevoz" />
+							<Form.Check id="checkRaz" label="Razno" value="Razno" />
+							{/* onChange={promjenaFiltera} */}
+							<button type="submit">Primjeni filtere</button>
+							<button onClick={ocistiFiltere}>Očisti filtere</button>
+						</Form>
+					</Col>
 					<Col className="col-sm-12 col-md-10 order-md-first">
 						<KarticaVolontera volonteri={volonteriSaServera} />
 					</Col>

@@ -19,7 +19,7 @@ function KarticaVolontera(props: KartVolProps) {
 	return (
 		<div className="col row">
 			{props.volonteri.map((volonter) => (
-				<div key={volonter.id} className="col-lg-3 col-md-4 col-sm-4 col-12 mb-3 p-1">
+				<div key={volonter.id} className="col-lg-3 col-md-4 col-sm-4 col-6 mb-3 p-1">
 					<Card className="" style={{ minWidth: "10rem" }}>
 						<Image className="card-img-top" src="./src/assets/2538100.jpg" />
 						<Card.Body className="p-0">

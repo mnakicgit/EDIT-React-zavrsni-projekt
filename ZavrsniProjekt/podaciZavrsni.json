@@ -85,6 +85,39 @@
         "Razno"
       ],
       "imgSrc": ""
+    },
+    {
+      "id": "",
+      "ime": "brane",
+      "email": "mjau@m",
+      "grad": "Supetar",
+      "aktivnosti": [
+        "Prijevoz",
+        "Razno"
+      ],
+      "imgSrc": ""
+    },
+    {
+      "id": "",
+      "ime": "hej",
+      "email": "hrg@dfggd",
+      "grad": "Mali Lošinj",
+      "aktivnosti": [
+        "Edukacija",
+        "Ekologija",
+        "Prijevoz"
+      ],
+      "imgSrc": ""
+    },
+    {
+      "id": "",
+      "ime": "fgsd",
+      "email": "gsg@f",
+      "grad": "",
+      "aktivnosti": [
+        "Edukacija"
+      ],
+      "imgSrc": ""
     }
   ],
   "udruge": [
