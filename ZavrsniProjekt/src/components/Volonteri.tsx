@@ -1,6 +1,8 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import AdminContext from "./AdminContext";
 import axios from "axios";
 import KarticaVolontera from "./KarticaVolontera";
+import FilteriVolontera from "./FIlteriVolontera"; // za odvojiti kasnije
 import Container from "react-bootstrap/Container";
 import FormaVolontera from "./FormaVolontera";
 import Button from "react-bootstrap/Button";
@@ -11,6 +13,7 @@ import Form from "react-bootstrap/Form";
 import PopisGradova from "../assets/PopisGradova";
 
 function Volonteri() {
+	const kontekst = useContext(AdminContext);
 	const [volonteriSaServera, postaviVolontereSaServera] = useState([]);
 	// const [filtriraniVolonteri, postaviFiltriraneVolontere] = useState([]); //mozda bolje imati vise poziva prema serveru nego opterecivati klijenta??
 	const [showOffcanvas, setShowOffcanvas] = useState(false);
@@ -122,15 +125,16 @@ function Volonteri() {
 					</Row>
 					<Row>
 						<Col className="col-sm-12 col-md-10" style={{ textAlign: "left" }}>
-							<div className="d-flex mb-4">
-								<h4 style={{ marginRight: "2rem", marginBottom: "0" }}>Prijavi se i ti!</h4>
-								<div>
-									<Button variant="primary" onClick={handleShow}>
-										Prijava
-									</Button>
+							{kontekst && (
+								<div className="d-flex mb-4">
+									<h4 style={{ marginRight: "2rem", marginBottom: "0" }}>Dodaj novog volontera</h4>
+									<div>
+										<Button variant="primary" onClick={handleShow}>
+											Dodaj
+										</Button>
+									</div>
 								</div>
-							</div>
-
+							)}
 							<p className="m-0">
 								Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
 								laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
