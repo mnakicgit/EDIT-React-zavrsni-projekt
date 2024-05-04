@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Container from "react-bootstrap/Container";
+import { Container } from "react-bootstrap";
 import Navigacija from "./components/Navigacija"; //koristen react-bootstrap, odvojeno u zasebnu komponentu radi preglednosti
 import Pocetna from "./components/Pocetna";
 import Aktivnosti from "./components/Aktivnosti";
