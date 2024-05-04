@@ -101,6 +101,9 @@ function FormaVolontera(props: FormaVolProps) {
 
 				<FloatingLabel controlId="floatingSelect" label="Grad" className="mb-3">
 					<Form.Select aria-label="Odabir grada iz padajuceg izbornika" name="grad" value={formaPodaci.grad} onChange={promjenaSelecta} required>
+						<option value="" disabled>
+							Odaberi grad
+						</option>
 						{PopisGradova.map((grad) => (
 							<option key={grad}>{grad}</option>
 						))}

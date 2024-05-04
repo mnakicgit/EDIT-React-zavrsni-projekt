@@ -34,13 +34,22 @@ function Volonteri() {
 
 	const primjeniFiltere = (event) => {
 		event.preventDefault();
-		//..........
 		console.log(filteri);
+		let noviFilteri = {};
+
+		const obradiFiltere = () => {};
+
+		console.log(noviFilteri);
+
+		axios
+			.get("http://localhost:3001/volonteri/", { params: noviFilteri })
+			.then((response) => postaviVolontereSaServera(response.data))
+			.catch((error) => console.error(error));
 	};
 
 	const ocistiFiltere = () => {
 		postaviFiltere({
-			grad: "",
+			grad: "", //ne radi
 			edu: false,
 			eko: false,
 			pri: false,
@@ -48,12 +57,49 @@ function Volonteri() {
 		});
 	};
 
+	const handleGradChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+		const selectedGrad = event.target.value;
+		postaviFiltere((prevFilteri) => ({
+			...prevFilteri,
+			grad: selectedGrad,
+		}));
+	};
+
+	const handleEduChange = () => {
+		postaviFiltere((prevFilteri) => ({
+			...prevFilteri,
+			edu: !prevFilteri.edu,
+		}));
+	};
+
+	const handleEkoChange = () => {
+		postaviFiltere((prevFilteri) => ({
+			...prevFilteri,
+			eko: !prevFilteri.eko,
+		}));
+	};
+
+	const handlePriChange = () => {
+		postaviFiltere((prevFilteri) => ({
+			...prevFilteri,
+			pri: !prevFilteri.pri,
+		}));
+	};
+
+	const handleRazChange = () => {
+		postaviFiltere((prevFilteri) => ({
+			...prevFilteri,
+			raz: !prevFilteri.raz,
+		}));
+	};
+
 	return (
 		<>
+			{/* odvoji naslovni banner u zasebnu komponentu */}
 			<Container className="p-0">
-				<Container fluid className="bg-body-secondary rounded-4 mb-5">
+				<Container fluid className="bg-body-secondary rounded-4 mb-5 p-4">
 					<Row>
-						<h1 className="my-4" style={{ textAlign: "left" }}>
+						<h1 className="mb-4" style={{ textAlign: "left" }}>
 							Volonteri
 						</h1>
 					</Row>
@@ -68,7 +114,7 @@ function Volonteri() {
 								</div>
 							</div>
 
-							<p>
+							<p className="m-0">
 								Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
 								laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
 								cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
@@ -78,23 +124,29 @@ function Volonteri() {
 				</Container>
 				<Row>
 					<Col className="col-12 col-sm-12 col-md-2 order-md-last">
-						<h6>Filteri</h6>
-						<Form>
-							{" "}
-							{/* onSubmit={primjeniFiltere} */}
-							<Form.Select aria-label="Odabir grada iz padajuceg izbornika" name="grad">
+						<h5>Filteri</h5>
+						<Form onSubmit={primjeniFiltere}>
+							<Form.Select className="m-2" aria-label="Odabir grada iz padajuceg izbornika" name="grad" onChange={handleGradChange}>
+								<option value="" disabled selected>
+									Odaberi grad
+								</option>
 								{PopisGradova.map((grad) => (
 									<option key={grad}>{grad}</option>
 								))}
 								{/* problem kod sortiranja, č ć na kraju */}
 							</Form.Select>
-							<Form.Check id="checkEdu" label="Edukacija" value="Edukacija" />
-							<Form.Check id="checkEko" label="Ekologija" value="Ekologija" />
-							<Form.Check id="checkPri" label="Prijevoz" value="Prijevoz" />
-							<Form.Check id="checkRaz" label="Razno" value="Razno" />
-							{/* onChange={promjenaFiltera} */}
-							<button type="submit">Primjeni filtere</button>
-							<button onClick={ocistiFiltere}>Očisti filtere</button>
+							<div className="m-2 d-flex flex-column align-items-start">
+								<Form.Check id="checkEdu" label="Edukacija" checked={filteri.edu} onChange={handleEduChange} inline />
+								<Form.Check id="checkEko" label="Ekologija" checked={filteri.eko} onChange={handleEkoChange} inline />
+								<Form.Check id="checkPri" label="Prijevoz" checked={filteri.pri} onChange={handlePriChange} inline />
+								<Form.Check id="checkRaz" label="Razno" checked={filteri.raz} onChange={handleRazChange} inline />
+							</div>
+							<button className="m-2" type="submit">
+								Primjeni filtere
+							</button>
+							<button className="m-2" onClick={ocistiFiltere}>
+								Očisti filtere
+							</button>
 						</Form>
 					</Col>
 					<Col className="col-sm-12 col-md-10 order-md-first">
