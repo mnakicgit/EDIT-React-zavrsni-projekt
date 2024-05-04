@@ -15,11 +15,12 @@ function Navigacija(props: NavProps) {
 		<>
 			<Navbar fixed="top" expand="lg" className="bg-body-secondary">
 				<Container>
-					<Navbar.Brand>Platforma za volontiranje</Navbar.Brand>
+					<Navbar.Brand>
+						<Nav.Link onClick={props.funPoc}>Platforma za volontiranje</Nav.Link>
+					</Navbar.Brand>
 					<Navbar.Toggle aria-controls="basic-navbar-nav" />
 					<Navbar.Collapse id="basic-navbar-nav">
 						<Nav className="me-auto">
-							<Nav.Link onClick={props.funPoc}>Početna</Nav.Link>
 							<Nav.Link onClick={props.funAkt}>Aktivnosti</Nav.Link>
 							<Nav.Link onClick={props.funVol}>Volonteri</Nav.Link>
 							<Nav.Link onClick={props.funUdr}>Udruge</Nav.Link>

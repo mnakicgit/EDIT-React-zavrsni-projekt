@@ -66,7 +66,7 @@ function Volonteri() {
 
 	const ocistiFiltere = () => {
 		postaviFiltere({
-			grad: "", //ne radi
+			grad: "",
 			edu: false,
 			eko: false,
 			pri: false,
@@ -143,7 +143,7 @@ function Volonteri() {
 					<Col className="col-12 col-sm-12 col-md-2 order-md-last">
 						<h5>Filteri</h5>
 						<Form onSubmit={primjeniFiltere}>
-							<Form.Select className="m-2" aria-label="Odabir grada iz padajuceg izbornika" name="grad" onChange={handleGradChange}>
+							<Form.Select className="m-2" aria-label="Odabir grada iz padajuceg izbornika" name="grad" onChange={handleGradChange} value={filteri.grad}>
 								<option value="" disabled selected>
 									Odaberi grad
 								</option>
@@ -178,7 +178,7 @@ function Volonteri() {
 					<Offcanvas.Title>Prijavi se!</Offcanvas.Title>
 				</Offcanvas.Header>
 				<Offcanvas.Body>
-					<FormaVolontera dodaj={postaviVolontereSaServera} />
+					<FormaVolontera dodaj={postaviVolontereSaServera} zatvoriOnSubmit={handleClose} />
 				</Offcanvas.Body>
 			</Offcanvas>
 		</>

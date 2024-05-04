@@ -6,7 +6,7 @@ function Pocetna() {
 	return (
 		<>
 			<Container className="row">
-				<div className="col w-auto d-flex flex-column justify-content-center  text-start" style={{ maxWidth: "75ch" }}>
+				<div className="col d-flex flex-column justify-content-center  text-start" style={{ maxWidth: "75ch" }}>
 					<p>Stranica je napravljena u sklopu React JuniorDev tečaja.</p>
 					<p>
 						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
@@ -14,7 +14,7 @@ function Pocetna() {
 					</p>
 					<div>{/* <FontAwesomeIcon icon={faGithub} size="sm" /> */}</div>
 				</div>
-				<div className="col w-75 d-flex flex-column justify-content-center align-items-center">
+				<div className="col d-flex flex-column justify-content-center align-items-center">
 					<Image className="w-75" style={{ minWidth: "15rem" }} src="./src/assets/2538100.jpg" alt="Profilna slika"></Image>
 					<a href="http://www.freepik.com">Image designed by Freepik</a>
 				</div>

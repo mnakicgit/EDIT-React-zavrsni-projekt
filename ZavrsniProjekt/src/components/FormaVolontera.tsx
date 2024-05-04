@@ -7,6 +7,8 @@ import FloatingLabel from "react-bootstrap/FloatingLabel";
 
 interface FormaVolProps {
 	dodaj: (stanje: { ime: string; id: string; email: string; grad: string; aktivnosti: string[]; imgSrc: string }) => void;
+	zatvoriOnSubmit: () => void;
+	prethodniVolonteri: [{}];
 }
 
 function FormaVolontera(props: FormaVolProps) {
@@ -94,11 +96,16 @@ function FormaVolontera(props: FormaVolProps) {
 
 	return (
 		<>
-			<Form onSubmit={saljiPodatke}>
+			<Form
+				onSubmit={(event) => {
+					event.preventDefault();
+					saljiPodatke(event);
+					props.zatvoriOnSubmit();
+				}}
+			>
 				<FloatingLabel controlId="floatingIme" label="Ime" className="mb-3">
 					<Form.Control type="text" placeholder="Unesi ime" value={formaPodaci.ime} onChange={promjenaImena} required />
 				</FloatingLabel>
-
 				<FloatingLabel controlId="floatingSelect" label="Grad" className="mb-3">
 					<Form.Select aria-label="Odabir grada iz padajuceg izbornika" name="grad" value={formaPodaci.grad} onChange={promjenaSelecta} required>
 						<option value="" disabled>
@@ -110,12 +117,10 @@ function FormaVolontera(props: FormaVolProps) {
 						{/* problem kod sortiranja, č ć na kraju */}
 					</Form.Select>
 				</FloatingLabel>
-
 				<Form.Check id="checkEdu" label="Edukacija" value="Edukacija" onChange={promjenaCheckboxa} />
 				<Form.Check id="checkEko" label="Ekologija" value="Ekologija" onChange={promjenaCheckboxa} />
 				<Form.Check id="checkPri" label="Prijevoz" value="Prijevoz" onChange={promjenaCheckboxa} />
 				<Form.Check id="checkRaz" label="Razno" value="Razno" onChange={promjenaCheckboxa} />
-
 				<FloatingLabel controlId="floatingEmail" label="Email address" className="my-3">
 					<Form.Control type="email" placeholder="name@example.com" value={formaPodaci.email} onChange={promjenaEmaila} required />
 				</FloatingLabel>
