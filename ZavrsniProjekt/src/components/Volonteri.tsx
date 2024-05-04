@@ -32,18 +32,35 @@ function Volonteri() {
 			.catch((err) => alert(err));
 	}, []);
 
-	const primjeniFiltere = (event) => {
+	const primjeniFiltere = (event: { preventDefault: () => void }) => {
 		event.preventDefault();
-		console.log(filteri);
-		let noviFilteri = {};
-
-		const obradiFiltere = () => {};
-
-		console.log(noviFilteri);
-
 		axios
-			.get("http://localhost:3001/volonteri/", { params: noviFilteri })
-			.then((response) => postaviVolontereSaServera(response.data))
+			.get("http://localhost:3001/volonteri/")
+			.then((response) => {
+				let filtrirani = response.data;
+
+				if (filteri.grad) {
+					filtrirani = filtrirani.filter((volonter: { grad: string }) => volonter.grad === filteri.grad);
+				}
+
+				if (filteri.edu) {
+					filtrirani = filtrirani.filter((volonter: { aktivnosti: string | string[] }) => volonter.aktivnosti.includes("Edukacija"));
+				}
+
+				if (filteri.eko) {
+					filtrirani = filtrirani.filter((volonter: { aktivnosti: string | string[] }) => volonter.aktivnosti.includes("Ekologija"));
+				}
+
+				if (filteri.pri) {
+					filtrirani = filtrirani.filter((volonter: { aktivnosti: string | string[] }) => volonter.aktivnosti.includes("Prijevoz"));
+				}
+
+				if (filteri.raz) {
+					filtrirani = filtrirani.filter((volonter: { aktivnosti: string | string[] }) => volonter.aktivnosti.includes("Razno"));
+				}
+
+				postaviVolontereSaServera(filtrirani);
+			})
 			.catch((error) => console.error(error));
 	};
 
