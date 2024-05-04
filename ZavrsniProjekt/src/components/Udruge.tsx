@@ -1,8 +1,4 @@
-import Container from "react-bootstrap/Container";
-import Button from "react-bootstrap/Button";
-import Offcanvas from "react-bootstrap/Offcanvas";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
+import { Container, Row, Col, Button, Offcanvas } from "react-bootstrap";
 
 function Udruge() {
 	return (

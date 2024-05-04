@@ -1,6 +1,5 @@
 import "../App.css";
-import Image from "react-bootstrap/Image";
-import Container from "react-bootstrap/Container";
+import { Image, Container } from "react-bootstrap";
 
 function Pocetna() {
 	return (

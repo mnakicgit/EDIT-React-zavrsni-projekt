@@ -1,8 +1,5 @@
 import { useState } from "react";
-import Offcanvas from "react-bootstrap/Offcanvas";
-import Card from "react-bootstrap/Card";
-import Button from "react-bootstrap/Button";
-import { Container } from "react-bootstrap";
+import { Container, Button, Offcanvas, Card } from "react-bootstrap";
 
 function Aktivnosti() {
 	const [show, setShow] = useState(false);

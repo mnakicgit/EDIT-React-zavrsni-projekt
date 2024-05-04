@@ -1,9 +1,5 @@
 import { useState } from "react";
-import Container from "react-bootstrap/Container";
-import Nav from "react-bootstrap/Nav";
-import Navbar from "react-bootstrap/Navbar";
-import Form from "react-bootstrap/Form";
-import AdminContext from "./AdminContext";
+import { Container, Nav, Navbar, Form } from "react-bootstrap";
 
 interface NavProps {
 	funPoc: () => void;
@@ -64,7 +60,16 @@ function Navigacija(props: NavProps) {
 						</Nav>
 						<Nav className="ml-auto">
 							<Form className="d-flex justify-content-center">
-								<Form.Check type="switch" id="custom-switch" label="Admin" className="mr-2" onChange={() => props.promjenaKonteksta()} />
+								<Form.Check
+									type="switch"
+									id="custom-switch"
+									label="Admin"
+									className="mr-2"
+									onChange={() => {
+										props.promjenaKonteksta();
+										handleCollapse();
+									}}
+								/>
 								<label htmlFor="custom-switch" />
 							</Form>
 						</Nav>

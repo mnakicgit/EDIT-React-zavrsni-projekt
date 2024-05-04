@@ -1,6 +1,4 @@
-import Card from "react-bootstrap/Card";
-import Image from "react-bootstrap/Image";
-import ListGroup from "react-bootstrap/ListGroup";
+import { Card, Image, ListGroup } from "react-bootstrap";
 
 interface TipoviVolontera {
 	id: number;

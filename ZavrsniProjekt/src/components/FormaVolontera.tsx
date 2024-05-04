@@ -2,8 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import PopisGradova from "../assets/PopisGradova";
 import Fab from "@mui/material/Fab";
-import Form from "react-bootstrap/Form";
-import FloatingLabel from "react-bootstrap/FloatingLabel";
+import { Form, FloatingLabel } from "react-bootstrap";
 
 interface FormaVolProps {
 	dodaj: (stanje: { ime: string; id: string; email: string; grad: string; aktivnosti: string[]; imgSrc: string }) => void;

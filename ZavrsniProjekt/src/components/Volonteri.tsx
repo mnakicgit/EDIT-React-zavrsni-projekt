@@ -2,15 +2,10 @@ import { useState, useEffect, useContext } from "react";
 import AdminContext from "./AdminContext";
 import axios from "axios";
 import KarticaVolontera from "./KarticaVolontera";
-import FilteriVolontera from "./FIlteriVolontera"; // za odvojiti kasnije
-import Container from "react-bootstrap/Container";
 import FormaVolontera from "./FormaVolontera";
-import Button from "react-bootstrap/Button";
-import Offcanvas from "react-bootstrap/Offcanvas";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import Form from "react-bootstrap/Form";
+import FilteriVolontera from "./FIlteriVolontera"; // za odvojiti kasnije
 import PopisGradova from "../assets/PopisGradova";
+import { Button, Container, Offcanvas, Row, Col, Form } from "react-bootstrap";
 
 function Volonteri() {
 	const kontekst = useContext(AdminContext);
@@ -148,8 +143,8 @@ function Volonteri() {
 						<h5>Filteri</h5>
 						<Form onSubmit={primjeniFiltere}>
 							<Form.Select className="m-2" aria-label="Odabir grada iz padajuceg izbornika" name="grad" onChange={handleGradChange} value={filteri.grad}>
-								<option value="" disabled selected>
-									Odaberi grad
+								<option value="" selected>
+									Svi gradovi
 								</option>
 								{PopisGradova.map((grad) => (
 									<option key={grad}>{grad}</option>
