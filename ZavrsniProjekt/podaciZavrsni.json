@@ -1,149 +1,104 @@
 {
-  "aktivnosti": [
-    {
-      "id": "1",
-      "naziv": "Čišćenje plaže",
-      "datum": "",
-      "lokacija": "Split",
-      "udruga": false,
-      "opis": ""
-    },
-    {
-      "id": "2",
-      "naziv": "Sadnja stabala",
-      "datum": "",
-      "lokacija": "Osijek",
-      "udruga": true,
-      "opis": ""
-    },
-    {
-      "naziv": "Pomoć u azilu za životinje",
-      "datum": "",
-      "lokacija": "Zagreb",
-      "udruga": true,
-      "opis": "",
-      "id": "3"
-    }
-  ],
-  "volonteri": [
-    {
-      "id": "1",
-      "ime": "Grozdana Galebić",
-      "email": "galeb@gmail.com",
-      "grad": "Split",
-      "aktivnosti": [
-        "Edukacija"
-      ]
-    },
-    {
-      "id": "2",
-      "ime": "Ante Korčulanin",
-      "email": "falimikorcula@yahoo.com",
-      "grad": "Zagreb",
-      "aktivnosti": [
-        "Edukacija",
-        "Prijevoz"
-      ]
-    },
-    {
-      "ime": "Sarina Brzica",
-      "id": "3",
-      "email": "hejhejhej@gmail.com",
-      "grad": "Osijek",
-      "aktivnosti": [
-        "Prijevoz",
-        "Razno"
-      ]
-    },
-    {
-      "ime": "Maja Nakić",
-      "id": "4",
-      "email": "mnakic00@gmail.com",
-      "grad": "Hvar",
-      "aktivnosti": [
-        "Edukacija",
-        "Ekologija",
-        "Prijevoz",
-        "Razno"
-      ]
-    },
-    {
-      "ime": "Mario Macan",
-      "email": "macke@mjau.hr",
-      "grad": "Zagreb",
-      "aktivnosti": [
-        "Prijevoz"
-      ],
-      "id": "5"
-    },
-    {
-      "ime": "Mario",
-      "email": "macke@mjau.hr",
-      "grad": "Zagreb",
-      "aktivnosti": [
-        "Prijevoz"
-      ],
-      "id": "6"
-    },
-    {
-      "ime": "Mario",
-      "email": "macke@mjau.hr",
-      "grad": "Zagreb",
-      "aktivnosti": [
-        "Prijevoz"
-      ],
-      "id": "7"
-    },
-    {
-      "ime": "Ivan Kotromanociccici",
-      "id": "8",
-      "email": "macke@mjau.hr",
-      "grad": "Zagreb",
-      "aktivnosti": [
-        "Prijevoz"
-      ]
-    },
-    {
-      "ime": "hfd",
-      "id": "9",
-      "email": "dfgf@fdg",
-      "grad": "Biograd na Moru",
-      "aktivnosti": [
-        "Edukacija"
-      ],
-      "imgSrc": ""
-    }
-  ],
-  "udruge": [
-    {
-      "id": "1",
-      "ime": "Split za mačke",
-      "grad": "Split",
-      "adresa": "Studinova 112"
-    },
-    {
-      "id": "2",
-      "ime": "Marjan",
-      "grad": "Split",
-      "adresa": "Velebitska 37"
-    },
-    {
-      "ime": "Pomozi",
-      "grad": "Split",
-      "adresa": "Riva 1",
-      "id": "3"
-    },
-    {
-      "ime": "Caritas",
-      "grad": "Makarska",
-      "adresa": "Neka ulica 89",
-      "id": "4"
-    },
-    {
-      "ime": "Aktiviraj se!",
-      "grad": "Hvar",
-      "adresa": "Gdinj 54A",
-      "id": "5"
-    }
-  ]
+	"aktivnosti": [
+		{
+			"id": "1",
+			"naziv": "Čišćenje plaže",
+			"datum": "",
+			"lokacija": "Split",
+			"udruga": false,
+			"opis": "Neki opis"
+		},
+		{
+			"id": "2",
+			"naziv": "Sadnja stabala",
+			"datum": "",
+			"lokacija": "Osijek",
+			"udruga": true,
+			"opis": "Lorem ipsum"
+		},
+		{
+			"naziv": "Pomoć u azilu za životinje",
+			"datum": "",
+			"lokacija": "Zagreb",
+			"udruga": true,
+			"opis": "Heeeej",
+			"id": "3"
+		}
+	],
+	"volonteri": [
+		{
+			"id": "1",
+			"ime": "Grozdana Galebić",
+			"email": "galeb@gmail.com",
+			"grad": "Split",
+			"aktivnosti": ["Edukacija"]
+		},
+		{
+			"ime": "Ante Korčulanin",
+			"id": "2",
+			"email": "falimikorcula@outlook.com",
+			"grad": "Zagreb",
+			"aktivnosti": ["Edukacija", "Prijevoz"]
+		},
+		{
+			"ime": "Sarina Brzica",
+			"id": "3",
+			"email": "hejhejhej@gmail.com",
+			"grad": "Osijek",
+			"aktivnosti": ["Prijevoz", "Razno"]
+		},
+		{
+			"ime": "Maja Nakić",
+			"id": "4",
+			"email": "mnakic00@gmail.com",
+			"grad": "Hvar",
+			"aktivnosti": ["Edukacija", "Ekologija", "Prijevoz", "Razno"]
+		},
+		{
+			"ime": "Mario Macan",
+			"id": "5",
+			"email": "macke@mjau.hr",
+			"grad": "Biograd na Moru",
+			"aktivnosti": ["Edukacija", "Ekologija", "Prijevoz", "Razno"]
+		},
+		{
+			"ime": "Ivo Ivić",
+			"email": "ivo@ivp.hr",
+			"grad": "Zagreb",
+			"aktivnosti": ["Edukacija", "Razno"],
+			"id": "6"
+		}
+	],
+	"udruge": [
+		{
+			"id": "1",
+			"ime": "Split za mačke",
+			"grad": "Split",
+			"adresa": "Studinova 112"
+		},
+		{
+			"id": "2",
+			"ime": "Marjan",
+			"grad": "Split",
+			"adresa": "Velebitska 37"
+		},
+		{
+			"ime": "Pomozi",
+			"grad": "Split",
+			"adresa": "Riva 1",
+			"id": "3"
+		},
+		{
+			"ime": "Caritas",
+			"grad": "Makarska",
+			"adresa": "Neka ulica 89",
+			"id": "4"
+		},
+		{
+			"ime": "Aktiviraj se!",
+			"grad": "Hvar",
+			"adresa": "Gdinj 54A",
+			"id": "5"
+		}
+	]
 }

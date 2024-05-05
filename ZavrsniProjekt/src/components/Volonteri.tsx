@@ -117,80 +117,80 @@ function Volonteri() {
 
 	return (
 		<>
-			{/* odvoji naslovni banner u zasebnu komponentu kako bi oblikovanje sigurno bilo konzistentno... */}
-			<Container className="p-0">
-				<Container fluid className="bg-body-secondary rounded-4 mb-3 p-4">
-					<Row>
-						<h1 className="mb-4" style={{ textAlign: "left" }}>
-							Volonteri
-						</h1>
-					</Row>
-					<Row>
-						<Col style={{ textAlign: "left" }}>
-							<p>
-								Ostale stranice nisam stigla dovršiti, ali ova je stranica potpuno dovršena. Pazila sam na detalje i potrudila se da ima sve elemente: ulogu admina, komunikaciju sa serverom, filtere,
-								lijep raspored, responzivnost...
-							</p>
-							<p className="m-0">
-								Radi preglednosti sam sve podatke o volonterima odlučila prikazati u karticama umjesto u <i>modal</i> prozoru. Osobno više volim odjednom vidjeti sve informacije.
-							</p>
-						</Col>
-					</Row>
-				</Container>
+			<StickyContainer>
+				{/* odvoji naslovni banner u zasebnu komponentu kako bi oblikovanje sigurno bilo konzistentno... */}
+				<Container className="p-0">
+					<Container fluid className="bg-body-secondary rounded-4 mb-3 p-4">
+						<Row>
+							<h1 className="mb-4" style={{ textAlign: "left" }}>
+								Volonteri
+							</h1>
+						</Row>
+						<Row>
+							<Col style={{ textAlign: "left" }}>
+								<p>
+									Ostale stranice nisam stigla dovršiti, ali ova je stranica potpuno funkcionalna na svim razinama. Pazila sam na detalje i potrudila se da ima sve elemente: ulogu admina, komunikaciju
+									sa serverom, filtere, lijep raspored, responzivnost...
+								</p>
+								<p className="m-0">
+									Radi preglednosti sam sve podatke o volonterima odlučila prikazati u karticama umjesto u <i>modal</i> prozoru. Osobno više volim odjednom vidjeti sve informacije.
+								</p>
+							</Col>
+						</Row>
+					</Container>
 
-				{kontekst && (
-					<Container fluid className="bg-body-tertiary rounded-4 p-2">
-						{/* <Row>
+					{kontekst && (
+						<Container fluid className="bg-body-tertiary rounded-4 p-2">
+							{/* <Row>
 							<h4 style={{ marginBottom: "1.2rem" }}>Upravljanje popisom volontera</h4>
 						</Row> 
 						<Row>*/}
-						<div>
-							<Button variant="primary" onClick={handleShow} className="m-2">
-								Dodaj
-							</Button>
+							<div>
+								<Button variant="primary" onClick={handleShow} className="m-2">
+									Dodaj volontera
+								</Button>
 
-							<Button variant={modifyButtons ? "info" : "primary"} onClick={prikaziPromijeni} className="m-2">
-								Promijeni
-							</Button>
+								<Button variant={modifyButtons ? "info" : "primary"} onClick={prikaziPromijeni} className="m-2">
+									Omogući promjene
+								</Button>
 
-							<Button variant={deleteButtons ? "info" : "primary"} onClick={prikaziIzbrisi} className="m-2">
-								Izbriši
-							</Button>
-						</div>
-						{/* </Row> */}
-					</Container>
-				)}
-				<StickyContainer>
+								<Button variant={deleteButtons ? "info" : "primary"} onClick={prikaziIzbrisi} className="m-2">
+									Omogući brisanje
+								</Button>
+							</div>
+							{/* </Row> */}
+						</Container>
+					)}
+
 					<Row>
-						<Col className="sticky-top col-12 col-sm-12 col-md-2 order-md-last mt-5">
-							<Sticky topOffset={50}>
+						<Col className="sticky-top col-12 col-sm-12 col-md-2 order-md-last mt-5 p-0">
+							<Sticky topOffset={250}>
 								{({ style }) => (
-									<div style={{ ...style, zIndex: 1000, backgroundColor: "white", marginTop: "4.5rem" }}>
-										<h5>Filteri</h5>
-										<Form onSubmit={primjeniFiltere}>
-											<Form onSubmit={primjeniFiltere}>
-												<Form.Select className="m-2" aria-label="Odabir grada iz padajuceg izbornika" name="grad" onChange={handleGradChange} value={filteri.grad}>
-													<option value="" selected>
-														Svi gradovi
-													</option>
-													{PopisGradova.map((grad) => (
-														<option key={grad}>{grad}</option>
-													))}
-													{/* problem kod sortiranja, č ć na kraju */}
-												</Form.Select>
-												<div className="m-2 d-flex flex-column align-items-start">
-													<Form.Check id="checkEdu" label="Edukacija" checked={filteri.edu} onChange={handleEduChange} inline />
-													<Form.Check id="checkEko" label="Ekologija" checked={filteri.eko} onChange={handleEkoChange} inline />
-													<Form.Check id="checkPri" label="Prijevoz" checked={filteri.pri} onChange={handlePriChange} inline />
-													<Form.Check id="checkRaz" label="Razno" checked={filteri.raz} onChange={handleRazChange} inline />
-												</div>
-												<button className="m-2" type="submit" onClick={primjeniFiltere}>
-													Primjeni filtere
-												</button>
-												<button className="m-2" onClick={ocistiFiltere}>
-													Očisti filtere
-												</button>
-											</Form>
+									<div className="border border-info mt-1 bg-white" style={{ ...style, zIndex: 1000, top: "4.5rem", paddingTop: "0.8rem", borderRadius: "1rem" }}>
+										<h5 style={{ marginBottom: "0" }}>Filteri</h5>
+
+										<Form onSubmit={primjeniFiltere} className="p-2">
+											<Form.Select className="mr-5" aria-label="Odabir grada iz padajuceg izbornika" name="grad" onChange={handleGradChange} value={filteri.grad}>
+												<option value="" selected>
+													Svi gradovi
+												</option>
+												{PopisGradova.map((grad) => (
+													<option key={grad}>{grad}</option>
+												))}
+												{/* problem kod sortiranja, č ć na kraju */}
+											</Form.Select>
+											<div className="m-2 d-flex flex-row flex-wrap align-items-start w-100">
+												<Form.Check id="checkEdu" label="Edukacija" checked={filteri.edu} onChange={handleEduChange} inline />
+												<Form.Check id="checkEko" label="Ekologija" checked={filteri.eko} onChange={handleEkoChange} inline />
+												<Form.Check id="checkPri" label="Prijevoz" checked={filteri.pri} onChange={handlePriChange} inline />
+												<Form.Check id="checkRaz" label="Razno" checked={filteri.raz} onChange={handleRazChange} inline />
+											</div>
+											<button className="m-2" type="submit" onClick={primjeniFiltere}>
+												Primjeni filtere
+											</button>
+											<button className="m-2" onClick={ocistiFiltere}>
+												Očisti filtere
+											</button>
 										</Form>
 									</div>
 								)}
@@ -207,17 +207,17 @@ function Volonteri() {
 							/>
 						</Col>
 					</Row>
-				</StickyContainer>
-			</Container>
+				</Container>
 
-			<Offcanvas show={showOffcanvas} onHide={handleClose} placement="end">
-				<Offcanvas.Header closeButton>
-					<Offcanvas.Title>Upiši podatke o volonteru</Offcanvas.Title>
-				</Offcanvas.Header>
-				<Offcanvas.Body>
-					<FormaVolontera dodaj={postaviVolontereSaServera} zatvoriOnSubmit={handleClose} idZaPromjenu={idZaPromjenu} />
-				</Offcanvas.Body>
-			</Offcanvas>
+				<Offcanvas show={showOffcanvas} onHide={handleClose} placement="end">
+					<Offcanvas.Header closeButton>
+						<Offcanvas.Title>Upiši podatke o volonteru</Offcanvas.Title>
+					</Offcanvas.Header>
+					<Offcanvas.Body>
+						<FormaVolontera dodaj={postaviVolontereSaServera} zatvoriOnSubmit={handleClose} idZaPromjenu={idZaPromjenu} />
+					</Offcanvas.Body>
+				</Offcanvas>
+			</StickyContainer>
 		</>
 	);
 }

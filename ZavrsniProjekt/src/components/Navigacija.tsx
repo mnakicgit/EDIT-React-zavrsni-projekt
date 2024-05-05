@@ -20,14 +20,14 @@ function Navigacija(props: NavProps) {
 		<>
 			<Navbar expanded={expanded} onToggle={() => setExpanded(!expanded)} fixed="top" expand="lg" className="bg-body-secondary">
 				<Container>
-					<Navbar.Brand>
+					<Navbar.Brand className="">
 						<Nav.Link
 							onClick={() => {
 								props.funPoc();
 								handleCollapse();
 							}}
 						>
-							Platforma za volontiranje
+							<i className="fa-solid fa-handshake-angle fa-xl text-primary-emphasis"></i> Platforma za volontiranje
 						</Nav.Link>
 					</Navbar.Brand>
 					<Navbar.Toggle aria-controls="basic-navbar-nav" />
