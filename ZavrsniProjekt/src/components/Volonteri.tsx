@@ -184,7 +184,7 @@ function Volonteri() {
 													<Form.Check id="checkPri" label="Prijevoz" checked={filteri.pri} onChange={handlePriChange} inline />
 													<Form.Check id="checkRaz" label="Razno" checked={filteri.raz} onChange={handleRazChange} inline />
 												</div>
-												<button className="m-2" type="submit">
+												<button className="m-2" type="submit" onClick={primjeniFiltere}>
 													Primjeni filtere
 												</button>
 												<button className="m-2" onClick={ocistiFiltere}>
