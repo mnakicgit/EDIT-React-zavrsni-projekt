@@ -1,4 +1,4 @@
-import { Card, Image, ListGroup, Button, Modal } from "react-bootstrap";
+import { Card, Image, ListGroup, Button, CardGroup } from "react-bootstrap";
 import { useContext } from "react";
 import axios from "axios";
 import AdminContext from "./AdminContext";
@@ -36,10 +36,10 @@ function KarticaVolontera(props: KartVolProps) {
 	const kontekst = useContext(AdminContext);
 	return (
 		<div className="col row">
-			{props.volonteri.map((volonter) => (
-				<div key={volonter.id} className="col-lg-3 col-md-4 col-sm-4 col-6 mb-3 p-1">
-					<Card className="" style={{ minWidth: "10rem" }}>
-						<Image className="card-img-top" src="./src/assets/2538100.jpg" />
+			<CardGroup>
+				{props.volonteri.map((volonter) => (
+					<Card key={volonter.id} className="col-lg-3 col-md-4 col-sm-4 col-6 m-2" style={{ minWidth: "10rem", border: "1px solid #cccccc", borderRadius: "5px" }}>
+						<Image className="card-img-top" src="./src/assets/2538100.jpg" style={{ borderRadius: "5px" }} />
 						<Card.Body className="p-0">
 							<Card.Header className="card-title w-100">{volonter.ime}</Card.Header>
 							<ListGroup className="list-group-flush mb-1">
@@ -70,8 +70,8 @@ function KarticaVolontera(props: KartVolProps) {
 							)}
 						</Card.Body>
 					</Card>
-				</div>
-			))}
+				))}
+			</CardGroup>
 		</div>
 	);
 }
