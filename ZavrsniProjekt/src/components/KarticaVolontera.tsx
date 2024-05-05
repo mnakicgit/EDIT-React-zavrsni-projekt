@@ -1,4 +1,7 @@
-import { Card, Image, ListGroup } from "react-bootstrap";
+import { Card, Image, ListGroup, Button, Modal } from "react-bootstrap";
+import { useContext } from "react";
+import axios from "axios";
+import AdminContext from "./AdminContext";
 
 interface TipoviVolontera {
 	id: number;
@@ -11,9 +14,27 @@ interface TipoviVolontera {
 
 interface KartVolProps {
 	volonteri: TipoviVolontera[];
+	prikaziIzbrisi: boolean;
+	prikaziPromijeni: boolean;
+	zatvoriOffcanvas: () => void;
+	otvoriOffcanvas: () => void;
 }
 
+const izbrisiVolontera = (id: number) => {
+	axios
+		.delete(`http://localhost:3001/volonteri/${id}`)
+		.then(() => {
+			alert("Volonter je uspjesno izbrisan. Promjena neće biti vidljiva dok ponovno ne učitate stranicu.");
+		})
+		.catch(() => {
+			alert("Volonter je već izbrisan.");
+		});
+};
+
+const promijeniVolontera = (id: number) => {};
+
 function KarticaVolontera(props: KartVolProps) {
+	const kontekst = useContext(AdminContext);
 	return (
 		<div className="col row">
 			{props.volonteri.map((volonter) => (
@@ -27,6 +48,27 @@ function KarticaVolontera(props: KartVolProps) {
 								<ListGroup.Item>{volonter.aktivnosti.join(" • ")}</ListGroup.Item>
 								<ListGroup.Item>{volonter.email}</ListGroup.Item>
 							</ListGroup>
+							{kontekst && (
+								<>
+									{props.prikaziPromijeni && (
+										<Button
+											variant="info"
+											className="mb-3 m-1"
+											onClick={() => {
+												promijeniVolontera(volonter.id);
+												props.otvoriOffcanvas();
+											}}
+										>
+											Promijeni
+										</Button>
+									)}
+									{props.prikaziIzbrisi && (
+										<Button variant="danger" className="mb-3 m-1" onClick={() => izbrisiVolontera(volonter.id)}>
+											Izbriši
+										</Button>
+									)}
+								</>
+							)}
 						</Card.Body>
 					</Card>
 				</div>

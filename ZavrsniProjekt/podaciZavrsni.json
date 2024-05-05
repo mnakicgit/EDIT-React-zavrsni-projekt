@@ -77,35 +77,31 @@
       "id": "5"
     },
     {
-      "id": "6",
-      "ime": "Ovo radi :)",
-      "email": "jupi@ha.ha",
-      "grad": "Solin",
+      "ime": "Mario",
+      "email": "macke@mjau.hr",
+      "grad": "Zagreb",
       "aktivnosti": [
-        "Razno"
+        "Prijevoz"
       ],
-      "imgSrc": ""
+      "id": "6"
     },
     {
-      "id": "7",
-      "ime": "brane",
-      "email": "mjau@m",
-      "grad": "Supetar",
+      "ime": "Mario",
+      "email": "macke@mjau.hr",
+      "grad": "Zagreb",
       "aktivnosti": [
-        "Prijevoz",
-        "Razno"
+        "Prijevoz"
       ],
-      "imgSrc": ""
+      "id": "7"
     },
     {
-      "id": "",
-      "ime": "dfgd",
-      "email": "fdsfds@fh.fgh",
-      "grad": "Donja Stubica",
+      "ime": "Mario",
+      "email": "macke@mjau.hr",
+      "grad": "Zagreb",
       "aktivnosti": [
-        "Razno"
+        "Prijevoz"
       ],
-      "imgSrc": ""
+      "id": "8"
     }
   ],
   "udruge": [

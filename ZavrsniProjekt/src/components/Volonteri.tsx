@@ -10,8 +10,11 @@ import { Button, Container, Offcanvas, Row, Col, Form } from "react-bootstrap";
 function Volonteri() {
 	const kontekst = useContext(AdminContext);
 	const [volonteriSaServera, postaviVolontereSaServera] = useState([]);
-	// const [filtriraniVolonteri, postaviFiltriraneVolontere] = useState([]); //mozda bolje imati vise poziva prema serveru nego opterecivati klijenta??
+	// const [filtriraniVolonteri, postaviFiltriraneVolontere] = useState([]); //ipak sam trebala na ovaj nacin
+	const [deleteButtons, setDeleteButtons] = useState(false);
+	const [modifyButtons, setModifyButtons] = useState(false);
 	const [showOffcanvas, setShowOffcanvas] = useState(false);
+
 	const [filteri, postaviFiltere] = useState({
 		grad: "",
 		edu: false,
@@ -20,6 +23,8 @@ function Volonteri() {
 		raz: false,
 	});
 
+	const prikaziIzbrisi = () => setDeleteButtons(!deleteButtons);
+	const prikaziPromijeni = () => setModifyButtons(!modifyButtons);
 	const handleClose = () => setShowOffcanvas(false);
 	const handleShow = () => setShowOffcanvas(true);
 
@@ -112,34 +117,47 @@ function Volonteri() {
 		<>
 			{/* odvoji naslovni banner u zasebnu komponentu */}
 			<Container className="p-0">
-				<Container fluid className="bg-body-secondary rounded-4 mb-5 p-4">
+				<Container fluid className="bg-body-secondary rounded-4 mb-3 p-4">
 					<Row>
 						<h1 className="mb-4" style={{ textAlign: "left" }}>
 							Volonteri
 						</h1>
 					</Row>
 					<Row>
-						<Col className="col-sm-12 col-md-10" style={{ textAlign: "left" }}>
-							{kontekst && (
-								<div className="d-flex mb-4">
-									<h4 style={{ marginRight: "2rem", marginBottom: "0" }}>Dodaj novog volontera</h4>
-									<div>
-										<Button variant="primary" onClick={handleShow}>
-											Dodaj
-										</Button>
-									</div>
-								</div>
-							)}
+						<Col style={{ textAlign: "left" }}>
+							<p>Ova stranica je potpuno dovršena. Potrudila sam se da barem ova stranica ima sve elemente: ulogu admina, komunikaciju sa serverom, filtere, lijep raspored, responzivnost... </p>
 							<p className="m-0">
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-								laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-								cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+								Radi preglednosti sam sve podatke o volonterima odlučila prikazati u karticama umjesto u <i>modal</i> prozoru. Osobno više volim odjednom vidjeti sve informacije.
 							</p>
 						</Col>
 					</Row>
 				</Container>
+
+				{kontekst && (
+					<Container fluid className="bg-body-tertiary rounded-4 p-2">
+						{/* <Row>
+							<h4 style={{ marginBottom: "1.2rem" }}>Upravljanje popisom volontera</h4>
+						</Row> 
+						<Row>*/}
+						<div>
+							<Button variant="primary" onClick={handleShow} className="m-2">
+								Dodaj
+							</Button>
+
+							<Button variant={modifyButtons ? "info" : "primary"} onClick={prikaziPromijeni} className="m-2">
+								Promijeni
+							</Button>
+
+							<Button variant={deleteButtons ? "info" : "primary"} onClick={prikaziIzbrisi} className="m-2">
+								Izbriši
+							</Button>
+						</div>
+						{/* </Row> */}
+					</Container>
+				)}
+
 				<Row>
-					<Col className="col-12 col-sm-12 col-md-2 order-md-last">
+					<Col className="col-12 col-sm-12 col-md-2 order-md-last mt-5">
 						<h5>Filteri</h5>
 						<Form onSubmit={primjeniFiltere}>
 							<Form.Select className="m-2" aria-label="Odabir grada iz padajuceg izbornika" name="grad" onChange={handleGradChange} value={filteri.grad}>
@@ -165,8 +183,8 @@ function Volonteri() {
 							</button>
 						</Form>
 					</Col>
-					<Col className="col-sm-12 col-md-10 order-md-first">
-						<KarticaVolontera volonteri={volonteriSaServera} />
+					<Col className="col-sm-12 col-md-10 order-md-first mt-5">
+						<KarticaVolontera volonteri={volonteriSaServera} prikaziIzbrisi={deleteButtons} prikaziPromijeni={modifyButtons} zatvoriOffcanvas={handleClose} otvoriOffcanvas={handleShow} />
 					</Col>
 				</Row>
 			</Container>
@@ -174,7 +192,7 @@ function Volonteri() {
 			{/* offcanvas se ne zatvori nakon submita, prosljedi i pozovi handleClose  */}
 			<Offcanvas show={showOffcanvas} onHide={handleClose} placement="end">
 				<Offcanvas.Header closeButton>
-					<Offcanvas.Title>Prijavi se!</Offcanvas.Title>
+					<Offcanvas.Title>Upiši podatke o volonteru</Offcanvas.Title>
 				</Offcanvas.Header>
 				<Offcanvas.Body>
 					<FormaVolontera dodaj={postaviVolontereSaServera} zatvoriOnSubmit={handleClose} />
