@@ -41,11 +41,19 @@ function KarticaVolontera(props: KartVolProps) {
 					<Card className="" style={{ minWidth: "10rem" }}>
 						<Image className="card-img-top" src="./src/assets/2538100.jpg" />
 						<Card.Body className="p-0">
-							<Card.Header className="card-title w-100">{volonter.ime}</Card.Header>
+							<Card.Header className="card-title d-flex align-items-center justify-content-center" style={{ minHeight: "4.2rem" }}>
+								<div className="w-100">{volonter.ime}</div>
+							</Card.Header>
 							<ListGroup className="list-group-flush mb-1">
-								<ListGroup.Item>{volonter.grad}</ListGroup.Item>
-								<ListGroup.Item>{volonter.aktivnosti.join(" • ")}</ListGroup.Item>
-								<ListGroup.Item>{volonter.email}</ListGroup.Item>
+								<ListGroup.Item className="d-flex align-items-center justify-content-center">
+									<div className="w-100">{volonter.grad}</div>
+								</ListGroup.Item>
+								<ListGroup.Item className="d-flex align-items-center justify-content-center" style={{ minHeight: "5.6rem" }}>
+									<div className="w-100">{volonter.aktivnosti.join(" • ")}</div>
+								</ListGroup.Item>
+								<ListGroup.Item className="px-1 d-flex align-items-center justify-content-center" style={{ minHeight: "4.2rem" }}>
+									<div className="w-100">{volonter.email}</div>
+								</ListGroup.Item>
 							</ListGroup>
 							{kontekst && (
 								<>

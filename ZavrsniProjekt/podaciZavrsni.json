@@ -47,13 +47,13 @@
     },
     {
       "ime": "Sarina Brzica",
+      "id": "3",
       "email": "hejhejhej@gmail.com",
       "grad": "Osijek",
       "aktivnosti": [
         "Prijevoz",
         "Razno"
-      ],
-      "id": "3"
+      ]
     },
     {
       "ime": "Maja Nakić",
@@ -104,10 +104,10 @@
       ]
     },
     {
-      "id": "9",
       "ime": "hfd",
+      "id": "9",
       "email": "dfgf@fdg",
-      "grad": "Bakar",
+      "grad": "Biograd na Moru",
       "aktivnosti": [
         "Edukacija"
       ],
