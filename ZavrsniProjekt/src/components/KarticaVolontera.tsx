@@ -18,6 +18,7 @@ interface KartVolProps {
 	prikaziPromijeni: boolean;
 	zatvoriOffcanvas: () => void;
 	otvoriOffcanvas: () => void;
+	postaviIdZaPromjenu: (id: string) => void;
 }
 
 const izbrisiVolontera = (id: number) => {
@@ -30,8 +31,6 @@ const izbrisiVolontera = (id: number) => {
 			alert("Volonter je već izbrisan.");
 		});
 };
-
-const promijeniVolontera = (id: number) => {};
 
 function KarticaVolontera(props: KartVolProps) {
 	const kontekst = useContext(AdminContext);
@@ -55,8 +54,8 @@ function KarticaVolontera(props: KartVolProps) {
 											variant="info"
 											className="mb-3 m-1"
 											onClick={() => {
-												promijeniVolontera(volonter.id);
 												props.otvoriOffcanvas();
+												props.postaviIdZaPromjenu(volonter.id.toString());
 											}}
 										>
 											Promijeni

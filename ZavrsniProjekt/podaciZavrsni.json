@@ -57,15 +57,15 @@
     },
     {
       "ime": "Maja Nakić",
+      "id": "4",
       "email": "mnakic00@gmail.com",
-      "grad": "Makarska",
+      "grad": "Hvar",
       "aktivnosti": [
         "Edukacija",
         "Ekologija",
         "Prijevoz",
         "Razno"
-      ],
-      "id": "4"
+      ]
     },
     {
       "ime": "Mario Macan",
@@ -95,13 +95,23 @@
       "id": "7"
     },
     {
-      "ime": "Mario",
+      "ime": "Ivan Kotromanociccici",
+      "id": "8",
       "email": "macke@mjau.hr",
       "grad": "Zagreb",
       "aktivnosti": [
         "Prijevoz"
+      ]
+    },
+    {
+      "id": "9",
+      "ime": "hfd",
+      "email": "dfgf@fdg",
+      "grad": "Bakar",
+      "aktivnosti": [
+        "Edukacija"
       ],
-      "id": "8"
+      "imgSrc": ""
     }
   ],
   "udruge": [

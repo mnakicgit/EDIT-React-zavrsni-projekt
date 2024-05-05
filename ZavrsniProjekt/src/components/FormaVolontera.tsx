@@ -9,6 +9,7 @@ interface FormaVolProps {
 	zatvoriOnSubmit: () => void;
 	prethodniVolonteri: [{}];
 	zaDodati: boolean;
+	idZaPromjenu?: string;
 }
 
 function FormaVolontera(props: FormaVolProps) {
@@ -29,14 +30,32 @@ function FormaVolontera(props: FormaVolProps) {
 	});
 
 	useEffect(() => {
-		axios.get("http://localhost:3001/volonteri").then((rez) => {
-			const zadnjiVolonter = rez.data[rez.data.length - 1];
-			const noviID = zadnjiVolonter ? parseInt(zadnjiVolonter.id) + 1 : 1;
-			postaviPodatke((prevState) => ({
-				...prevState,
-				id: noviID.toString(),
-			}));
-		});
+		if (props.idZaPromjenu) {
+			axios
+				.get(`http://localhost:3001/volonteri/${props.idZaPromjenu}`)
+				.then((rez) => {
+					postaviPodatke(rez.data);
+				})
+				.catch((error) => {
+					console.error("Greška prilikom dohvaćanja podataka zadanog volontera:", error);
+				});
+		}
+		//ako nije proslijeden idZaPromjenu, znaci da forma treba dodati novog volontera, a ne promijeniti postojeceg
+		else {
+			axios
+				.get("http://localhost:3001/volonteri")
+				.then((rez) => {
+					const zadnjiVolonter = rez.data[rez.data.length - 1];
+					const noviID = zadnjiVolonter ? parseInt(zadnjiVolonter.id) + 1 : 1;
+					postaviPodatke((prevState) => ({
+						...prevState,
+						id: noviID.toString(),
+					}));
+				})
+				.catch((error) => {
+					console.error("Greška prilikom dohvaćanja podataka svih volontera:", error);
+				});
+		}
 	}, []);
 
 	// zasto ne radi s jednom funkcijom za sve inpute?
@@ -98,9 +117,26 @@ function FormaVolontera(props: FormaVolProps) {
 
 		const zaSlanje = obradiPodatke(formaPodaci);
 
-		axios.post("http://localhost:3001/volonteri", zaSlanje).then((rez) => {
-			props.dodaj((stanje) => [...stanje, rez.data]);
-		});
+		if (props.idZaPromjenu) {
+			axios
+				.put(`http://localhost:3001/volonteri/${props.idZaPromjenu}`, zaSlanje)
+				.then((rez) => {
+					console.log("Ažurirano:", rez.data);
+					alert("Podaci volontera su uspješno ažurirani. Podaci neće biti vidljivi dok ne osvježite stranicu.");
+				})
+				.catch((error) => {
+					console.error("Greška prilikom ažuriranja podataka volontera:", error);
+				});
+		} else {
+			axios
+				.post("http://localhost:3001/volonteri", zaSlanje)
+				.then((rez) => {
+					props.dodaj((stanje) => [...stanje, rez.data]);
+				})
+				.catch((error) => {
+					console.error("Greška prilikom slanja podataka volontera:", error);
+				});
+		}
 	};
 
 	return (

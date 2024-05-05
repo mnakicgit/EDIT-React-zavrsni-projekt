@@ -10,10 +10,11 @@ import { Button, Container, Offcanvas, Row, Col, Form } from "react-bootstrap";
 function Volonteri() {
 	const kontekst = useContext(AdminContext);
 	const [volonteriSaServera, postaviVolontereSaServera] = useState([]);
-	// const [filtriraniVolonteri, postaviFiltriraneVolontere] = useState([]); //ipak sam trebala na ovaj nacin
+	// const [filtriraniVolonteri, postaviFiltriraneVolontere] = useState([]); //ipak sam trebala na ovaj nacin, bolje imati sto manje poziva prema serveru
 	const [deleteButtons, setDeleteButtons] = useState(false);
 	const [modifyButtons, setModifyButtons] = useState(false);
 	const [showOffcanvas, setShowOffcanvas] = useState(false);
+	const [idZaPromjenu, postaviIdZaPromjenu] = useState("");
 
 	const [filteri, postaviFiltere] = useState({
 		grad: "",
@@ -125,7 +126,10 @@ function Volonteri() {
 					</Row>
 					<Row>
 						<Col style={{ textAlign: "left" }}>
-							<p>Ova stranica je potpuno dovršena. Potrudila sam se da barem ova stranica ima sve elemente: ulogu admina, komunikaciju sa serverom, filtere, lijep raspored, responzivnost... </p>
+							<p>
+								Ostale stranice nisam stigla dovršiti, ali ova je stranica potpuno dovršena. Pazila sam na detalje i potrudila se da ima sve elemente: ulogu admina, komunikaciju sa serverom, filtere,
+								lijep raspored, responzivnost...{" "}
+							</p>
 							<p className="m-0">
 								Radi preglednosti sam sve podatke o volonterima odlučila prikazati u karticama umjesto u <i>modal</i> prozoru. Osobno više volim odjednom vidjeti sve informacije.
 							</p>
@@ -184,7 +188,14 @@ function Volonteri() {
 						</Form>
 					</Col>
 					<Col className="col-sm-12 col-md-10 order-md-first mt-5">
-						<KarticaVolontera volonteri={volonteriSaServera} prikaziIzbrisi={deleteButtons} prikaziPromijeni={modifyButtons} zatvoriOffcanvas={handleClose} otvoriOffcanvas={handleShow} />
+						<KarticaVolontera
+							volonteri={volonteriSaServera}
+							prikaziIzbrisi={deleteButtons}
+							prikaziPromijeni={modifyButtons}
+							zatvoriOffcanvas={handleClose}
+							otvoriOffcanvas={handleShow}
+							postaviIdZaPromjenu={postaviIdZaPromjenu}
+						/>
 					</Col>
 				</Row>
 			</Container>
@@ -195,7 +206,7 @@ function Volonteri() {
 					<Offcanvas.Title>Upiši podatke o volonteru</Offcanvas.Title>
 				</Offcanvas.Header>
 				<Offcanvas.Body>
-					<FormaVolontera dodaj={postaviVolontereSaServera} zatvoriOnSubmit={handleClose} />
+					<FormaVolontera dodaj={postaviVolontereSaServera} zatvoriOnSubmit={handleClose} idZaPromjenu={idZaPromjenu} />
 				</Offcanvas.Body>
 			</Offcanvas>
 		</>
