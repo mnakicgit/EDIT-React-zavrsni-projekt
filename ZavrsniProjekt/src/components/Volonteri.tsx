@@ -128,7 +128,7 @@ function Volonteri() {
 						<Col style={{ textAlign: "left" }}>
 							<p>
 								Ostale stranice nisam stigla dovršiti, ali ova je stranica potpuno dovršena. Pazila sam na detalje i potrudila se da ima sve elemente: ulogu admina, komunikaciju sa serverom, filtere,
-								lijep raspored, responzivnost...{" "}
+								lijep raspored, responzivnost...
 							</p>
 							<p className="m-0">
 								Radi preglednosti sam sve podatke o volonterima odlučila prikazati u karticama umjesto u <i>modal</i> prozoru. Osobno više volim odjednom vidjeti sve informacije.
