@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Container } from "react-bootstrap";
-import { StickyContainer } from "react-sticky";
+import { StickyContainer, Sticky } from "react-sticky";
 import Navigacija from "./components/Navigacija"; //koristen react-bootstrap, odvojeno u zasebnu komponentu radi preglednosti
 import Pocetna from "./components/Pocetna";
 import Aktivnosti from "./components/Aktivnosti";
