@@ -125,6 +125,6 @@ const PopisGradova: string[] = [
 	"Umag",
 ];
 
-PopisGradova.sort();
+PopisGradova.sort((a, b) => a.localeCompare(b, "hr"));
 
 export default PopisGradova;

@@ -159,7 +159,6 @@ function FormaVolontera(props: FormaVolProps) {
 						{PopisGradova.map((grad) => (
 							<option key={grad}>{grad}</option>
 						))}
-						{/* problem kod sortiranja, č ć na kraju */}
 					</Form.Select>
 				</FloatingLabel>
 				<Form.Check id="checkEduF" label="Edukacija" value="Edukacija" onChange={promjenaCheckboxa} />

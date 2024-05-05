@@ -116,7 +116,7 @@ function Volonteri() {
 
 	return (
 		<>
-			{/* odvoji naslovni banner u zasebnu komponentu */}
+			{/* odvoji naslovni banner u zasebnu komponentu kako bi oblikovanje sigurno bilo konzistentno... */}
 			<Container className="p-0">
 				<Container fluid className="bg-body-secondary rounded-4 mb-3 p-4">
 					<Row>
@@ -200,7 +200,6 @@ function Volonteri() {
 				</Row>
 			</Container>
 
-			{/* offcanvas se ne zatvori nakon submita, prosljedi i pozovi handleClose  */}
 			<Offcanvas show={showOffcanvas} onHide={handleClose} placement="end">
 				<Offcanvas.Header closeButton>
 					<Offcanvas.Title>Upiši podatke o volonteru</Offcanvas.Title>
