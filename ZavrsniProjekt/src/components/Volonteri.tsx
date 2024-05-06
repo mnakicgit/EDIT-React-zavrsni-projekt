@@ -163,7 +163,7 @@ function Volonteri() {
 					)}
 
 					<Row>
-						<Col className="sticky-top col-12 col-sm-12 col-md-2 order-md-last mt-5 p-0">
+						<Col className="sticky-top col-12 col-sm-12 col-md-2 order-lg-last mt-5 p-0">
 							<Sticky topOffset={250}>
 								{({ style }) => (
 									<div className="mt-1 bg-body-secondary" style={{ ...style, zIndex: 1000, top: "4.5rem", paddingTop: "0.8rem", borderRadius: "1rem" }}>
@@ -187,10 +187,10 @@ function Volonteri() {
 													<Form.Check id="checkRaz" label="Razno" checked={filteri.raz} onChange={handleRazChange} inline />
 												</div>
 											</Col>
-											<button className="m-2" type="submit" onClick={primjeniFiltere}>
+											<button className="mb-2" type="submit" onClick={primjeniFiltere}>
 												Primjeni filtere
 											</button>
-											<button className="m-2" onClick={ocistiFiltere}>
+											<button className="mx-2 mb-2" onClick={ocistiFiltere}>
 												Očisti filtere
 											</button>
 										</Form>
