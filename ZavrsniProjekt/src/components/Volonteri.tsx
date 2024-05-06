@@ -166,7 +166,7 @@ function Volonteri() {
 						<Col className="sticky-top col-12 col-sm-12 col-md-2 order-md-last mt-5 p-0">
 							<Sticky topOffset={250}>
 								{({ style }) => (
-									<div className="border border-info mt-1 bg-white" style={{ ...style, zIndex: 1000, top: "4.5rem", paddingTop: "0.8rem", borderRadius: "1rem" }}>
+									<div className="mt-1 bg-body-secondary" style={{ ...style, zIndex: 1000, top: "4.5rem", paddingTop: "0.8rem", borderRadius: "1rem" }}>
 										<h5 style={{ marginBottom: "0" }}>Filteri</h5>
 
 										<Form onSubmit={primjeniFiltere} className="p-2">
@@ -179,12 +179,14 @@ function Volonteri() {
 												))}
 												{/* problem kod sortiranja, č ć na kraju */}
 											</Form.Select>
-											<div className="m-2 d-flex flex-row flex-wrap align-items-start w-100">
-												<Form.Check id="checkEdu" label="Edukacija" checked={filteri.edu} onChange={handleEduChange} inline />
-												<Form.Check id="checkEko" label="Ekologija" checked={filteri.eko} onChange={handleEkoChange} inline />
-												<Form.Check id="checkPri" label="Prijevoz" checked={filteri.pri} onChange={handlePriChange} inline />
-												<Form.Check id="checkRaz" label="Razno" checked={filteri.raz} onChange={handleRazChange} inline />
-											</div>
+											<Col className="col-xxl-6">
+												<div className="m-2 d-flex flex-row flex-wrap align-items-start">
+													<Form.Check id="checkEdu" label="Edukacija" checked={filteri.edu} onChange={handleEduChange} inline />
+													<Form.Check id="checkEko" label="Ekologija" checked={filteri.eko} onChange={handleEkoChange} inline />
+													<Form.Check id="checkPri" label="Prijevoz" checked={filteri.pri} onChange={handlePriChange} inline />
+													<Form.Check id="checkRaz" label="Razno" checked={filteri.raz} onChange={handleRazChange} inline />
+												</div>
+											</Col>
 											<button className="m-2" type="submit" onClick={primjeniFiltere}>
 												Primjeni filtere
 											</button>
