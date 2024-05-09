@@ -1,19 +1,14 @@
 import "../App.css";
-import { Image, Container, Row, Col } from "react-bootstrap";
+import { Image, Row, Col } from "react-bootstrap";
 
 function Pocetna() {
 	return (
 		<>
-			<Container className="row">
-				<Row>
-					<Col className="col-sm-12 col-md-6 text-sm-center text-md-start d-flex flex-column justify-content-center" style={{ maxWidth: "75ch" }}>
+			<Row>
+				<Col className="col-12 col-sm-12 col-md-6 text-sm-center text-md-start d-flex flex-column justify-content-center align-items-center" style={{ maxWidth: "75ch" }}>
+					<div style={{ maxWidth: "30rem" }}>
 						<Row>
-							<Image
-								src="./src/assets/juniorDev.png"
-								alt="JuniorDev Digitalna dalmacija"
-								className="mb-4 align-self-start"
-								style={{ maxWidth: "30rem", filter: "brightness(0) saturate(100%) invert(0%) sepia(100%) hue-rotate(0deg)" }}
-							></Image>
+							<Image src="./src/assets/juniorDev.png" alt="JuniorDev Digitalna dalmacija" className="mb-4" style={{ filter: "brightness(0)" }}></Image>
 						</Row>
 						<Row className="mb-2">
 							<h4>Stranica je napravljena u sklopu EDIT JuniorDev React tečaja.</h4>
@@ -32,15 +27,13 @@ function Pocetna() {
 								<i className="fa-brands fa-bootstrap fa-2xl"></i>*/}
 							</div>
 						</Row>
-					</Col>
-					<Col className=" d-flex flex-column justify-content-center align-items-center">
-						{/* <div className="d-flex flex-column align-items-center" style={{ width: "fit-content" }}> */}
-						<Image className="w-75" style={{ minWidth: "15rem" }} src="./src/assets/2538100.jpg" alt="Profilna slika"></Image>
-						<a href="http://www.freepik.com">Image designed by Freepik</a>
-						{/* </div> */}
-					</Col>
-				</Row>
-			</Container>
+					</div>
+				</Col>
+				<Col className="d-flex flex-column justify-content-center align-items-center">
+					<Image className="w-75" style={{ minWidth: "15rem" }} src="./src/assets/2538100.jpg" alt="Profilna slika"></Image>
+					<a href="http://www.freepik.com">Image designed by Freepik</a>
+				</Col>
+			</Row>
 		</>
 	);
 }

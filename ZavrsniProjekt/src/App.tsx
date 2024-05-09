@@ -53,7 +53,7 @@ function App() {
 			<AdminContext.Provider value={kontekst}>
 				<Navigacija funPoc={handleClickPocetna} funAkt={handleClickAktivnosti} funVol={handleClickVolonteri} funUdr={handleClickUdruge} promjenaKonteksta={promijeniKontekst} />
 
-				<Container id="page-content-wrapper" className="py-5 my-5 position-relative w-100 d-flex justify-content-center">
+				<Container id="page-content-wrapper" className="py-5 position-relative w-100 d-flex justify-content-center" style={{ marginBottom: "15rem", marginTop: "10rem" }}>
 					{pocetna && <Pocetna />}
 					{aktivnosti && <Aktivnosti />}
 					{volonteri && <Volonteri />}

@@ -27,7 +27,10 @@ function Navigacija(props: NavProps) {
 								handleCollapse();
 							}}
 						>
-							<i className="fa-solid fa-handshake-angle fa-xl text-primary-emphasis"></i> Platforma za volontiranje
+							<a href="#" style={{ marginRight: "0.5rem", pointerEvents: "none" }}>
+								<i className="fa-solid fa-handshake-angle fa-xl"></i>
+							</a>
+							Platforma za volontiranje
 						</Nav.Link>
 					</Navbar.Brand>
 					<Navbar.Toggle aria-controls="basic-navbar-nav" />
